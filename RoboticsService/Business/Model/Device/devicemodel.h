@@ -103,6 +103,7 @@ public:
         this->m_id = "-1";
         this->m_uid = "";
         this->m_sn = "";
+        this->m_ip = "";
         this->m_sonsor = SensorType::SensorFarAway;
         this->m_deviceOnOff = Device_OnOff_Status::Device_ShutDown;
         this->m_batteryStatus = BatteryStatus::Battery100Percent;
@@ -151,6 +152,7 @@ public:
         this->m_id = model.m_id;
         this->m_uid = model.m_uid;
         this->m_sn = model.m_sn;
+        this->m_ip = model.m_ip;
         this->m_invalidType = model.m_invalidType;
         this->m_isAdded = model.m_isAdded;
         this->m_isSelected = model.m_isSelected;
@@ -199,6 +201,7 @@ public:
         this->m_id = model.m_id;
         this->m_uid = model.m_uid;
         this->m_sn = model.m_sn;
+        this->m_ip = model.m_ip;
         this->m_invalidType = model.m_invalidType;
         this->m_isAdded = model.m_isAdded;
         this->m_isSelected = model.m_isSelected;
@@ -255,6 +258,7 @@ public:
     QString     m_id;
     QString     m_uid;
     QString     m_sn;
+    QString     m_ip;
     ChargeStatus m_chargeStatus;
     BatteryStatus m_batteryStatus;
     Device_OnOff_Status m_deviceOnOff;

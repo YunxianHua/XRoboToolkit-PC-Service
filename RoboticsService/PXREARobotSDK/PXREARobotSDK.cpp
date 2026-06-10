@@ -69,6 +69,7 @@ struct StreamHelper
         return stream.str();
     }
 };
+
 unsigned g_mask = PXREAFullMask;
 void* g_context;
 pfPXREAClientCallback gOnPXREAClientCallback;
@@ -153,8 +154,11 @@ public:
                 {
                     if(g_mask & PXREADeviceConnect)
                     {
-                        gOnPXREAClientCallback(g_context,PXREADeviceConnect,feedBack.devstatus().status(),const_cast<char*>(feedBack.devstatus().devid().c_str()));
-                        OutputDebug((StreamHelper()<<"device connect "<<feedBack.devstatus().devid()<<feedBack.devstatus().status()).str().c_str());
+                        PXREADevConnectInfo info{};
+                        strcpy_s(info.devID,32,feedBack.devstatus().devid().c_str());
+                        strcpy_s(info.ip,64,feedBack.devstatus().ip().c_str());
+                        gOnPXREAClientCallback(g_context,PXREADeviceConnect,feedBack.devstatus().status(),&info);
+                        OutputDebug((StreamHelper()<<"device connect "<<info.devID<<" "<<info.ip<<" "<<feedBack.devstatus().status()).str().c_str());
                     }
                     else
                     {

@@ -28,7 +28,7 @@ signals:
      void stopFrameCapture();
      void replyDeviceFind(QString devid);
      void replyDeviceMissing(QString devid);
-     void replyDeviceMessage(QString devid, int type, QByteArray msgbody);
+     void replyDeviceMessage(QString devid, int type, QByteArray msgbody, QString ip);
      void replyFirstMonitorScreenFrame(QString devid, int width, int height);
      void replyMonitorScreenFrame(QString devid, QByteArray rtcFrame, int width, int height, int bytesPerLine, int pixFormat);
      void replyFirstMonitorStreamFrame(QString devid, int width, int height);
@@ -38,7 +38,7 @@ signals:
      void createStreamMonitorSharedMemory(QString uid);
      void destroyStreamMonitorSharedMemory(QString uid);
 public slots:
-    void onReplyDeviceMessage(QString devid, int type, QByteArray msgbody);
+    void onReplyDeviceMessage(QString devid, int type, QByteArray msgbody, QString ip);
 
 
 private:

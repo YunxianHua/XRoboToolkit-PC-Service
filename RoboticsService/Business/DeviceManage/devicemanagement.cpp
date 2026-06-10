@@ -75,12 +75,31 @@ void DeviceManagement::onNewRtcConnection(QString sn)
         DeviceModel model;
         model.m_sn = sn;
         model.m_uid = sn;
+        model.m_ip = "";
         model.m_isOnline = true;
         model.m_state = DeviceModel::DeviceState::FreeState;
         model.m_id = "";
         m_connectDevice.insert(sn, model);
     }
 
+}
+
+void DeviceManagement::onNewRtcConnectionWithIP(QString sn, QString ip)
+{
+    if(m_connectDevice.contains(sn))
+    {
+        m_connectDevice[sn].m_isOnline = true;
+        m_connectDevice[sn].m_ip = ip;
+        return;
+    }
+    DeviceModel model;
+    model.m_sn = sn;
+    model.m_uid = sn;
+    model.m_ip = ip;
+    model.m_isOnline = true;
+    model.m_state = DeviceModel::DeviceState::FreeState;
+    model.m_id = "";
+    m_connectDevice.insert(sn, model);
 }
 
 void DeviceManagement::onRtcDeviceOffLine(QString sn)
@@ -103,6 +122,7 @@ void DeviceManagement::onRtcDeviceOffLine(QString sn)
         DeviceModel model;
         model.m_sn = sn;
         model.m_uid = sn;
+        model.m_ip = "";
         model.m_isOnline = false;
         model.m_state = DeviceModel::DeviceState::OffLineState;
         model.m_id = QString::number(getModelID());
@@ -121,6 +141,7 @@ void DeviceManagement::init()
     parseSetting();
     setLocalUid();
     connect(&m_connectEvent, SIGNAL(userJoinedSignal(QString)), this, SLOT(onNewRtcConnection(QString)));
+    connect(&m_connectEvent, SIGNAL(userJoinedWithIPSignal(QString,QString)), this, SLOT(onNewRtcConnectionWithIP(QString,QString)));
     connect(&m_connectEvent, SIGNAL(userLeaveSignal(QString)), this, SLOT(onRtcDeviceOffLine(QString)));
     connect(&m_connectEvent, &DevConnSDK::ConnectEventHandlerInQt::connectStatusSignal, this, &DeviceManagement::connectStatusSignal);
     connect(&m_connectEvent, SIGNAL(userBinaryMsgSignal(QString,int,QByteArray)), this, SLOT(onNewDeviceMessageSDK(QString,int,QByteArray)));
@@ -223,19 +244,21 @@ void DeviceManagement::ReplySDKClient(const QString& uid, const TcpMessage& tcpM
     {
         QList<QByteArray> parts = tcpMessage.m_msg.split('|');
         qDebug() <<"device connect"<<QString::fromUtf8(parts[0])<<QString::fromUtf8(parts[1])<< Qt::endl;
-        emit recvDeviceMessageSignal(QString::fromUtf8(parts[0]),PXREAServerMsgConnect,parts[1]);
+        QString sn = QString::fromUtf8(parts[0]);
+        QString ip = m_connectDevice.contains(sn) ? m_connectDevice[sn].m_ip : "";
+        emit recvDeviceMessageSignal(sn,PXREAServerMsgConnect,parts[1],ip);
     }
         break;
     case TCP_CLIENT_MSG_DEVICE_STATE_JSON:
     {
         //qDebug() <<"device state json"<<QString::fromUtf8(tcpMessage.m_msg)<< Qt::endl;
-        emit recvDeviceMessageSignal(uid,PXREAServerMsgDeviceStateJson,tcpMessage.m_msg);
+        emit recvDeviceMessageSignal(uid,PXREAServerMsgDeviceStateJson,tcpMessage.m_msg,"");
     }
         break;
     case TCP_CLIENT_MSG_SEND_BYTES_TO_DEVICE:
     {
         // 直接使用原始的二进制数据
-        emit recvDeviceMessageSignal(uid,PXREAServerSendCustomMessage,tcpMessage.m_msg);
+        emit recvDeviceMessageSignal(uid,PXREAServerSendCustomMessage,tcpMessage.m_msg,"");
     }
         break;
     }

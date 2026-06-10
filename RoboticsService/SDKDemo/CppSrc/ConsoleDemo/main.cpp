@@ -23,8 +23,11 @@ void OnPXREAClientCallback(void* context,PXREAClientCallbackType type,int status
         std::cout <<"device missing"<<(const char*)userData<<  std::endl;
         break;
     case PXREADeviceConnect:
-        std::cout <<"device connect"<<(const char*)userData<<status<< std::endl;
+    {
+        auto& info = *((PXREADevConnectInfo*)userData);
+        std::cout <<"device connect"<<info.devID<<" "<<info.ip<<" "<<status<< std::endl;
         break;
+    }
     case PXREADeviceStateJson:
         auto& dsj = *((PXREADevStateJson*)userData);
 

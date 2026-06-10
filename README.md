@@ -305,10 +305,11 @@ enum PXREAClientCallbackType
 
 ```
 
-The device data obtained by the user is mainly through the PXREADeviceStateJson callback, and the corresponding callback function parameters are as follows
+PXREADeviceConnect callback userData is a PXREADevConnectInfo pointer, which contains the device SN and IP. Device state data is mainly obtained through the PXREADeviceStateJson callback.
 
 | Callback Type         | context | type                 | userData | status |
 | ------------ | ------- | -------------------- | -------- | ------ |
+| Device connection information | User-defined   | PXREADeviceConnect | PXREADevConnectInfo* | Connection status |
 | JSON format device state description | User-defined   | PXREADeviceStateJson |          | 0      |
 
 
@@ -583,6 +584,12 @@ inline void OnPXREAClientCallback(void* context,PXREAClientCallbackType type,int
     case PXREADeviceMissing:
         //qDebug() <<"device missing"<<(const char*)userData<< Qt::endl;
         break;
+    case PXREADeviceConnect:
+    {
+        auto& info = *((PXREADevConnectInfo*)userData);
+        //qDebug() <<"device connect"<<info.devID<<info.ip<<status<< Qt::endl;
+        break;
+    }
     case PXREADeviceStateJson:
         break;
     }

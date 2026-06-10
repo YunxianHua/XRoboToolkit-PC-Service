@@ -2622,6 +2622,7 @@ class DeviceStatus final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kDevidFieldNumber = 1,
+    kIpFieldNumber = 3,
     kStatusFieldNumber = 2,
   };
   // string devid = 1;
@@ -2640,6 +2641,22 @@ class DeviceStatus final : public ::google::protobuf::Message
   std::string* _internal_mutable_devid();
 
   public:
+  // string ip = 3;
+  void clear_ip() ;
+  const std::string& ip() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_ip(Arg_&& arg, Args_... args);
+  std::string* mutable_ip();
+  PROTOBUF_NODISCARD std::string* release_ip();
+  void set_allocated_ip(std::string* value);
+
+  private:
+  const std::string& _internal_ip() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ip(
+      const std::string& value);
+  std::string* _internal_mutable_ip();
+
+  public:
   // int32 status = 2;
   void clear_status() ;
   ::int32_t status() const;
@@ -2655,8 +2672,8 @@ class DeviceStatus final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      1, 2, 0,
-      39, 2>
+      2, 3, 0,
+      41, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -2677,6 +2694,7 @@ class DeviceStatus final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const DeviceStatus& from_msg);
     ::google::protobuf::internal::ArenaStringPtr devid_;
+    ::google::protobuf::internal::ArenaStringPtr ip_;
     ::int32_t status_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -8680,6 +8698,56 @@ inline ::int32_t DeviceStatus::_internal_status() const {
 inline void DeviceStatus::_internal_set_status(::int32_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.status_ = value;
+}
+
+// string ip = 3;
+inline void DeviceStatus::clear_ip() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ip_.ClearToEmpty();
+}
+inline const std::string& DeviceStatus::ip() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PXREAService.DeviceStatus.ip)
+  return _internal_ip();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void DeviceStatus::set_ip(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ip_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:PXREAService.DeviceStatus.ip)
+}
+inline std::string* DeviceStatus::mutable_ip() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_ip();
+  // @@protoc_insertion_point(field_mutable:PXREAService.DeviceStatus.ip)
+  return _s;
+}
+inline const std::string& DeviceStatus::_internal_ip() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.ip_.Get();
+}
+inline void DeviceStatus::_internal_set_ip(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ip_.Set(value, GetArena());
+}
+inline std::string* DeviceStatus::_internal_mutable_ip() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.ip_.Mutable( GetArena());
+}
+inline std::string* DeviceStatus::release_ip() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:PXREAService.DeviceStatus.ip)
+  return _impl_.ip_.Release();
+}
+inline void DeviceStatus::set_allocated_ip(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ip_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.ip_.IsDefault()) {
+          _impl_.ip_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:PXREAService.DeviceStatus.ip)
 }
 
 // -------------------------------------------------------------------

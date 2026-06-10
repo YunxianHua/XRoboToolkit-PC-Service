@@ -31,7 +31,7 @@ signals:
     void sdkClientRemoved(int pid);
     void replyDeviceFind(QString devid);
     void replyDeviceMissing(QString devid);
-    void replyDeviceMessage(QString devid,int type,QByteArray msgbody);
+    void replyDeviceMessage(QString devid,int type,QByteArray msgbody,QString ip);
 
 
 public slots:

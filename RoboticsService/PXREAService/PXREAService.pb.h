@@ -3322,6 +3322,7 @@ class DeviceStatus final :
 
   enum : int {
     kDevidFieldNumber = 1,
+    kIpFieldNumber = 3,
     kStatusFieldNumber = 2,
   };
   // string devid = 1;
@@ -3336,6 +3337,20 @@ class DeviceStatus final :
   const std::string& _internal_devid() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_devid(const std::string& value);
   std::string* _internal_mutable_devid();
+  public:
+
+  // string ip = 3;
+  void clear_ip();
+  const std::string& ip() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_ip(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_ip();
+  PROTOBUF_MUST_USE_RESULT std::string* release_ip();
+  void set_allocated_ip(std::string* ip);
+  private:
+  const std::string& _internal_ip() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ip(const std::string& value);
+  std::string* _internal_mutable_ip();
   public:
 
   // int32 status = 2;
@@ -3355,6 +3370,7 @@ class DeviceStatus final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr devid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ip_;
   ::PROTOBUF_NAMESPACE_ID::int32 status_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_PXREAService_2eproto;
@@ -5264,7 +5280,7 @@ inline const std::string& DeviceID::id() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceID::set_id(ArgT0&& arg0, ArgT... args) {
- 
+
  id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceID.id)
 }
@@ -5277,11 +5293,11 @@ inline const std::string& DeviceID::_internal_id() const {
   return id_.Get();
 }
 inline void DeviceID::_internal_set_id(const std::string& value) {
-  
+
   id_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceID::_internal_mutable_id() {
-  
+
   return id_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceID::release_id() {
@@ -5290,9 +5306,9 @@ inline std::string* DeviceID::release_id() {
 }
 inline void DeviceID::set_allocated_id(std::string* id) {
   if (id != nullptr) {
-    
+
   } else {
-    
+
   }
   id_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id,
       GetArenaForAllocation());
@@ -5315,7 +5331,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 VRPid::pid() const {
   return _internal_pid();
 }
 inline void VRPid::_internal_set_pid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
+
   pid_ = value;
 }
 inline void VRPid::set_pid(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -5339,7 +5355,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 TexHandleInfo::pid() const {
   return _internal_pid();
 }
 inline void TexHandleInfo::_internal_set_pid(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  
+
   pid_ = value;
 }
 inline void TexHandleInfo::set_pid(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -5359,7 +5375,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int64 TexHandleInfo::handle() const {
   return _internal_handle();
 }
 inline void TexHandleInfo::_internal_set_handle(::PROTOBUF_NAMESPACE_ID::int64 value) {
-  
+
   handle_ = value;
 }
 inline void TexHandleInfo::set_handle(::PROTOBUF_NAMESPACE_ID::int64 value) {
@@ -5382,7 +5398,7 @@ inline const std::string& VideoPlayInfo::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void VideoPlayInfo::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.VideoPlayInfo.devid)
 }
@@ -5395,11 +5411,11 @@ inline const std::string& VideoPlayInfo::_internal_devid() const {
   return devid_.Get();
 }
 inline void VideoPlayInfo::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* VideoPlayInfo::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* VideoPlayInfo::release_devid() {
@@ -5408,9 +5424,9 @@ inline std::string* VideoPlayInfo::release_devid() {
 }
 inline void VideoPlayInfo::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -5428,7 +5444,7 @@ inline const std::string& VideoPlayInfo::videopath() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void VideoPlayInfo::set_videopath(ArgT0&& arg0, ArgT... args) {
- 
+
  videopath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.VideoPlayInfo.videopath)
 }
@@ -5441,11 +5457,11 @@ inline const std::string& VideoPlayInfo::_internal_videopath() const {
   return videopath_.Get();
 }
 inline void VideoPlayInfo::_internal_set_videopath(const std::string& value) {
-  
+
   videopath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* VideoPlayInfo::_internal_mutable_videopath() {
-  
+
   return videopath_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* VideoPlayInfo::release_videopath() {
@@ -5454,9 +5470,9 @@ inline std::string* VideoPlayInfo::release_videopath() {
 }
 inline void VideoPlayInfo::set_allocated_videopath(std::string* videopath) {
   if (videopath != nullptr) {
-    
+
   } else {
-    
+
   }
   videopath_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), videopath,
       GetArenaForAllocation());
@@ -5478,7 +5494,7 @@ inline const std::string& VideoSeekInfo::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void VideoSeekInfo::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.VideoSeekInfo.devid)
 }
@@ -5491,11 +5507,11 @@ inline const std::string& VideoSeekInfo::_internal_devid() const {
   return devid_.Get();
 }
 inline void VideoSeekInfo::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* VideoSeekInfo::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* VideoSeekInfo::release_devid() {
@@ -5504,9 +5520,9 @@ inline std::string* VideoSeekInfo::release_devid() {
 }
 inline void VideoSeekInfo::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -5525,7 +5541,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 VideoSeekInfo::millisecond() const {
   return _internal_millisecond();
 }
 inline void VideoSeekInfo::_internal_set_millisecond(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
+
   millisecond_ = value;
 }
 inline void VideoSeekInfo::set_millisecond(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -5548,7 +5564,7 @@ inline const std::string& AppPlayInfo::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void AppPlayInfo::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.AppPlayInfo.devid)
 }
@@ -5561,11 +5577,11 @@ inline const std::string& AppPlayInfo::_internal_devid() const {
   return devid_.Get();
 }
 inline void AppPlayInfo::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* AppPlayInfo::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* AppPlayInfo::release_devid() {
@@ -5574,9 +5590,9 @@ inline std::string* AppPlayInfo::release_devid() {
 }
 inline void AppPlayInfo::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -5594,7 +5610,7 @@ inline const std::string& AppPlayInfo::appname() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void AppPlayInfo::set_appname(ArgT0&& arg0, ArgT... args) {
- 
+
  appname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.AppPlayInfo.appname)
 }
@@ -5607,11 +5623,11 @@ inline const std::string& AppPlayInfo::_internal_appname() const {
   return appname_.Get();
 }
 inline void AppPlayInfo::_internal_set_appname(const std::string& value) {
-  
+
   appname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* AppPlayInfo::_internal_mutable_appname() {
-  
+
   return appname_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* AppPlayInfo::release_appname() {
@@ -5620,9 +5636,9 @@ inline std::string* AppPlayInfo::release_appname() {
 }
 inline void AppPlayInfo::set_allocated_appname(std::string* appname) {
   if (appname != nullptr) {
-    
+
   } else {
-    
+
   }
   appname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), appname,
       GetArenaForAllocation());
@@ -5644,7 +5660,7 @@ inline const std::string& PicPlayInfo::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void PicPlayInfo::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.PicPlayInfo.devid)
 }
@@ -5657,11 +5673,11 @@ inline const std::string& PicPlayInfo::_internal_devid() const {
   return devid_.Get();
 }
 inline void PicPlayInfo::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* PicPlayInfo::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* PicPlayInfo::release_devid() {
@@ -5670,9 +5686,9 @@ inline std::string* PicPlayInfo::release_devid() {
 }
 inline void PicPlayInfo::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -5690,7 +5706,7 @@ inline const std::string& PicPlayInfo::picpath() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void PicPlayInfo::set_picpath(ArgT0&& arg0, ArgT... args) {
- 
+
  picpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.PicPlayInfo.picpath)
 }
@@ -5703,11 +5719,11 @@ inline const std::string& PicPlayInfo::_internal_picpath() const {
   return picpath_.Get();
 }
 inline void PicPlayInfo::_internal_set_picpath(const std::string& value) {
-  
+
   picpath_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* PicPlayInfo::_internal_mutable_picpath() {
-  
+
   return picpath_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* PicPlayInfo::release_picpath() {
@@ -5716,9 +5732,9 @@ inline std::string* PicPlayInfo::release_picpath() {
 }
 inline void PicPlayInfo::set_allocated_picpath(std::string* picpath) {
   if (picpath != nullptr) {
-    
+
   } else {
-    
+
   }
   picpath_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), picpath,
       GetArenaForAllocation());
@@ -5740,7 +5756,7 @@ inline const std::string& DeviceVolumnInfo::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceVolumnInfo::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceVolumnInfo.devid)
 }
@@ -5753,11 +5769,11 @@ inline const std::string& DeviceVolumnInfo::_internal_devid() const {
   return devid_.Get();
 }
 inline void DeviceVolumnInfo::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceVolumnInfo::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceVolumnInfo::release_devid() {
@@ -5766,9 +5782,9 @@ inline std::string* DeviceVolumnInfo::release_devid() {
 }
 inline void DeviceVolumnInfo::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -5787,7 +5803,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 DeviceVolumnInfo::volumn() const {
   return _internal_volumn();
 }
 inline void DeviceVolumnInfo::_internal_set_volumn(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   volumn_ = value;
 }
 inline void DeviceVolumnInfo::set_volumn(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -5810,7 +5826,7 @@ inline const std::string& DeviceBytesInfo::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceBytesInfo::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceBytesInfo.devid)
 }
@@ -5823,11 +5839,11 @@ inline const std::string& DeviceBytesInfo::_internal_devid() const {
   return devid_.Get();
 }
 inline void DeviceBytesInfo::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceBytesInfo::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceBytesInfo::release_devid() {
@@ -5836,9 +5852,9 @@ inline std::string* DeviceBytesInfo::release_devid() {
 }
 inline void DeviceBytesInfo::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -5856,7 +5872,7 @@ inline const std::string& DeviceBytesInfo::content() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceBytesInfo::set_content(ArgT0&& arg0, ArgT... args) {
- 
+
  content_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceBytesInfo.content)
 }
@@ -5869,11 +5885,11 @@ inline const std::string& DeviceBytesInfo::_internal_content() const {
   return content_.Get();
 }
 inline void DeviceBytesInfo::_internal_set_content(const std::string& value) {
-  
+
   content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceBytesInfo::_internal_mutable_content() {
-  
+
   return content_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceBytesInfo::release_content() {
@@ -5882,9 +5898,9 @@ inline std::string* DeviceBytesInfo::release_content() {
 }
 inline void DeviceBytesInfo::set_allocated_content(std::string* content) {
   if (content != nullptr) {
-    
+
   } else {
-    
+
   }
   content_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), content,
       GetArenaForAllocation());
@@ -5906,7 +5922,7 @@ inline const std::string& RoomBytesInfo::content() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void RoomBytesInfo::set_content(ArgT0&& arg0, ArgT... args) {
- 
+
  content_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.RoomBytesInfo.content)
 }
@@ -5919,11 +5935,11 @@ inline const std::string& RoomBytesInfo::_internal_content() const {
   return content_.Get();
 }
 inline void RoomBytesInfo::_internal_set_content(const std::string& value) {
-  
+
   content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* RoomBytesInfo::_internal_mutable_content() {
-  
+
   return content_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* RoomBytesInfo::release_content() {
@@ -5932,9 +5948,9 @@ inline std::string* RoomBytesInfo::release_content() {
 }
 inline void RoomBytesInfo::set_allocated_content(std::string* content) {
   if (content != nullptr) {
-    
+
   } else {
-    
+
   }
   content_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), content,
       GetArenaForAllocation());
@@ -5956,7 +5972,7 @@ inline const std::string& ControllerInfo::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void ControllerInfo::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.ControllerInfo.devid)
 }
@@ -5969,11 +5985,11 @@ inline const std::string& ControllerInfo::_internal_devid() const {
   return devid_.Get();
 }
 inline void ControllerInfo::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* ControllerInfo::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* ControllerInfo::release_devid() {
@@ -5982,9 +5998,9 @@ inline std::string* ControllerInfo::release_devid() {
 }
 inline void ControllerInfo::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -6003,7 +6019,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 ControllerInfo::controllerid() const {
   return _internal_controllerid();
 }
 inline void ControllerInfo::_internal_set_controllerid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
+
   controllerid_ = value;
 }
 inline void ControllerInfo::set_controllerid(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -6026,7 +6042,7 @@ inline const std::string& ControllerHomeButtonFunction::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void ControllerHomeButtonFunction::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.ControllerHomeButtonFunction.devid)
 }
@@ -6039,11 +6055,11 @@ inline const std::string& ControllerHomeButtonFunction::_internal_devid() const 
   return devid_.Get();
 }
 inline void ControllerHomeButtonFunction::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* ControllerHomeButtonFunction::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* ControllerHomeButtonFunction::release_devid() {
@@ -6052,9 +6068,9 @@ inline std::string* ControllerHomeButtonFunction::release_devid() {
 }
 inline void ControllerHomeButtonFunction::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -6072,7 +6088,7 @@ inline const std::string& ControllerHomeButtonFunction::homebuttontype() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void ControllerHomeButtonFunction::set_homebuttontype(ArgT0&& arg0, ArgT... args) {
- 
+
  homebuttontype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.ControllerHomeButtonFunction.homebuttontype)
 }
@@ -6085,11 +6101,11 @@ inline const std::string& ControllerHomeButtonFunction::_internal_homebuttontype
   return homebuttontype_.Get();
 }
 inline void ControllerHomeButtonFunction::_internal_set_homebuttontype(const std::string& value) {
-  
+
   homebuttontype_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* ControllerHomeButtonFunction::_internal_mutable_homebuttontype() {
-  
+
   return homebuttontype_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* ControllerHomeButtonFunction::release_homebuttontype() {
@@ -6098,9 +6114,9 @@ inline std::string* ControllerHomeButtonFunction::release_homebuttontype() {
 }
 inline void ControllerHomeButtonFunction::set_allocated_homebuttontype(std::string* homebuttontype) {
   if (homebuttontype != nullptr) {
-    
+
   } else {
-    
+
   }
   homebuttontype_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), homebuttontype,
       GetArenaForAllocation());
@@ -6118,7 +6134,7 @@ inline const std::string& ControllerHomeButtonFunction::homefunction() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void ControllerHomeButtonFunction::set_homefunction(ArgT0&& arg0, ArgT... args) {
- 
+
  homefunction_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.ControllerHomeButtonFunction.homefunction)
 }
@@ -6131,11 +6147,11 @@ inline const std::string& ControllerHomeButtonFunction::_internal_homefunction()
   return homefunction_.Get();
 }
 inline void ControllerHomeButtonFunction::_internal_set_homefunction(const std::string& value) {
-  
+
   homefunction_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* ControllerHomeButtonFunction::_internal_mutable_homefunction() {
-  
+
   return homefunction_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* ControllerHomeButtonFunction::release_homefunction() {
@@ -6144,9 +6160,9 @@ inline std::string* ControllerHomeButtonFunction::release_homefunction() {
 }
 inline void ControllerHomeButtonFunction::set_allocated_homefunction(std::string* homefunction) {
   if (homefunction != nullptr) {
-    
+
   } else {
-    
+
   }
   homefunction_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), homefunction,
       GetArenaForAllocation());
@@ -6168,7 +6184,7 @@ inline const std::string& ScreenStateInfo::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void ScreenStateInfo::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.ScreenStateInfo.devid)
 }
@@ -6181,11 +6197,11 @@ inline const std::string& ScreenStateInfo::_internal_devid() const {
   return devid_.Get();
 }
 inline void ScreenStateInfo::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* ScreenStateInfo::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* ScreenStateInfo::release_devid() {
@@ -6194,9 +6210,9 @@ inline std::string* ScreenStateInfo::release_devid() {
 }
 inline void ScreenStateInfo::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -6215,7 +6231,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 ScreenStateInfo::state() const {
   return _internal_state();
 }
 inline void ScreenStateInfo::_internal_set_state(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
+
   state_ = value;
 }
 inline void ScreenStateInfo::set_state(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -6238,7 +6254,7 @@ inline const std::string& DeviceAliasInfo::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceAliasInfo::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceAliasInfo.devid)
 }
@@ -6251,11 +6267,11 @@ inline const std::string& DeviceAliasInfo::_internal_devid() const {
   return devid_.Get();
 }
 inline void DeviceAliasInfo::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceAliasInfo::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceAliasInfo::release_devid() {
@@ -6264,9 +6280,9 @@ inline std::string* DeviceAliasInfo::release_devid() {
 }
 inline void DeviceAliasInfo::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -6284,7 +6300,7 @@ inline const std::string& DeviceAliasInfo::alias() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceAliasInfo::set_alias(ArgT0&& arg0, ArgT... args) {
- 
+
  alias_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceAliasInfo.alias)
 }
@@ -6297,11 +6313,11 @@ inline const std::string& DeviceAliasInfo::_internal_alias() const {
   return alias_.Get();
 }
 inline void DeviceAliasInfo::_internal_set_alias(const std::string& value) {
-  
+
   alias_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceAliasInfo::_internal_mutable_alias() {
-  
+
   return alias_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceAliasInfo::release_alias() {
@@ -6310,9 +6326,9 @@ inline std::string* DeviceAliasInfo::release_alias() {
 }
 inline void DeviceAliasInfo::set_allocated_alias(std::string* alias) {
   if (alias != nullptr) {
-    
+
   } else {
-    
+
   }
   alias_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), alias,
       GetArenaForAllocation());
@@ -6334,7 +6350,7 @@ inline const std::string& ServerFeedback::name() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void ServerFeedback::set_name(ArgT0&& arg0, ArgT... args) {
- 
+
  name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.ServerFeedback.name)
 }
@@ -6347,11 +6363,11 @@ inline const std::string& ServerFeedback::_internal_name() const {
   return name_.Get();
 }
 inline void ServerFeedback::_internal_set_name(const std::string& value) {
-  
+
   name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* ServerFeedback::_internal_mutable_name() {
-  
+
   return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* ServerFeedback::release_name() {
@@ -6360,9 +6376,9 @@ inline std::string* ServerFeedback::release_name() {
 }
 inline void ServerFeedback::set_allocated_name(std::string* name) {
   if (name != nullptr) {
-    
+
   } else {
-    
+
   }
   name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
       GetArenaForAllocation());
@@ -7438,7 +7454,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 VrParam::width() const {
   return _internal_width();
 }
 inline void VrParam::_internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   width_ = value;
 }
 inline void VrParam::set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7458,7 +7474,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 VrParam::height() const {
   return _internal_height();
 }
 inline void VrParam::_internal_set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   height_ = value;
 }
 inline void VrParam::set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7478,7 +7494,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 VrParam::fps() const {
   return _internal_fps();
 }
 inline void VrParam::_internal_set_fps(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   fps_ = value;
 }
 inline void VrParam::set_fps(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7501,7 +7517,7 @@ inline const std::string& DeviceBattery::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceBattery::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceBattery.devid)
 }
@@ -7514,11 +7530,11 @@ inline const std::string& DeviceBattery::_internal_devid() const {
   return devid_.Get();
 }
 inline void DeviceBattery::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceBattery::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceBattery::release_devid() {
@@ -7527,9 +7543,9 @@ inline std::string* DeviceBattery::release_devid() {
 }
 inline void DeviceBattery::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -7548,7 +7564,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 DeviceBattery::battery() const {
   return _internal_battery();
 }
 inline void DeviceBattery::_internal_set_battery(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   battery_ = value;
 }
 inline void DeviceBattery::set_battery(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7571,7 +7587,7 @@ inline const std::string& DeviceStatus::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceStatus::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceStatus.devid)
 }
@@ -7584,11 +7600,11 @@ inline const std::string& DeviceStatus::_internal_devid() const {
   return devid_.Get();
 }
 inline void DeviceStatus::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceStatus::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceStatus::release_devid() {
@@ -7597,9 +7613,9 @@ inline std::string* DeviceStatus::release_devid() {
 }
 inline void DeviceStatus::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -7618,12 +7634,58 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 DeviceStatus::status() const {
   return _internal_status();
 }
 inline void DeviceStatus::_internal_set_status(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
+
   status_ = value;
 }
 inline void DeviceStatus::set_status(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_status(value);
   // @@protoc_insertion_point(field_set:PXREAService.DeviceStatus.status)
+}
+
+// string ip = 3;
+inline void DeviceStatus::clear_ip() {
+  ip_.ClearToEmpty();
+}
+inline const std::string& DeviceStatus::ip() const {
+  // @@protoc_insertion_point(field_get:PXREAService.DeviceStatus.ip)
+  return _internal_ip();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DeviceStatus::set_ip(ArgT0&& arg0, ArgT... args) {
+
+ ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:PXREAService.DeviceStatus.ip)
+}
+inline std::string* DeviceStatus::mutable_ip() {
+  std::string* _s = _internal_mutable_ip();
+  // @@protoc_insertion_point(field_mutable:PXREAService.DeviceStatus.ip)
+  return _s;
+}
+inline const std::string& DeviceStatus::_internal_ip() const {
+  return ip_.Get();
+}
+inline void DeviceStatus::_internal_set_ip(const std::string& value) {
+
+  ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* DeviceStatus::_internal_mutable_ip() {
+
+  return ip_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* DeviceStatus::release_ip() {
+  // @@protoc_insertion_point(field_release:PXREAService.DeviceStatus.ip)
+  return ip_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void DeviceStatus::set_allocated_ip(std::string* ip) {
+  if (ip != nullptr) {
+
+  } else {
+
+  }
+  ip_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ip,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:PXREAService.DeviceStatus.ip)
 }
 
 // -------------------------------------------------------------------
@@ -7641,7 +7703,7 @@ inline const std::string& DeviceModel::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceModel::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceModel.devid)
 }
@@ -7654,11 +7716,11 @@ inline const std::string& DeviceModel::_internal_devid() const {
   return devid_.Get();
 }
 inline void DeviceModel::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceModel::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceModel::release_devid() {
@@ -7667,9 +7729,9 @@ inline std::string* DeviceModel::release_devid() {
 }
 inline void DeviceModel::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -7687,7 +7749,7 @@ inline const std::string& DeviceModel::model() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceModel::set_model(ArgT0&& arg0, ArgT... args) {
- 
+
  model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceModel.model)
 }
@@ -7700,11 +7762,11 @@ inline const std::string& DeviceModel::_internal_model() const {
   return model_.Get();
 }
 inline void DeviceModel::_internal_set_model(const std::string& value) {
-  
+
   model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceModel::_internal_mutable_model() {
-  
+
   return model_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceModel::release_model() {
@@ -7713,9 +7775,9 @@ inline std::string* DeviceModel::release_model() {
 }
 inline void DeviceModel::set_allocated_model(std::string* model) {
   if (model != nullptr) {
-    
+
   } else {
-    
+
   }
   model_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), model,
       GetArenaForAllocation());
@@ -7737,7 +7799,7 @@ inline const std::string& CurrentApplication::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void CurrentApplication::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.CurrentApplication.devid)
 }
@@ -7750,11 +7812,11 @@ inline const std::string& CurrentApplication::_internal_devid() const {
   return devid_.Get();
 }
 inline void CurrentApplication::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* CurrentApplication::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* CurrentApplication::release_devid() {
@@ -7763,9 +7825,9 @@ inline std::string* CurrentApplication::release_devid() {
 }
 inline void CurrentApplication::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -7783,7 +7845,7 @@ inline const std::string& CurrentApplication::appname() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void CurrentApplication::set_appname(ArgT0&& arg0, ArgT... args) {
- 
+
  appname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.CurrentApplication.appname)
 }
@@ -7796,11 +7858,11 @@ inline const std::string& CurrentApplication::_internal_appname() const {
   return appname_.Get();
 }
 inline void CurrentApplication::_internal_set_appname(const std::string& value) {
-  
+
   appname_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* CurrentApplication::_internal_mutable_appname() {
-  
+
   return appname_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* CurrentApplication::release_appname() {
@@ -7809,9 +7871,9 @@ inline std::string* CurrentApplication::release_appname() {
 }
 inline void CurrentApplication::set_allocated_appname(std::string* appname) {
   if (appname != nullptr) {
-    
+
   } else {
-    
+
   }
   appname_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), appname,
       GetArenaForAllocation());
@@ -7833,7 +7895,7 @@ inline const std::string& ControllerBattery::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void ControllerBattery::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.ControllerBattery.devid)
 }
@@ -7846,11 +7908,11 @@ inline const std::string& ControllerBattery::_internal_devid() const {
   return devid_.Get();
 }
 inline void ControllerBattery::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* ControllerBattery::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* ControllerBattery::release_devid() {
@@ -7859,9 +7921,9 @@ inline std::string* ControllerBattery::release_devid() {
 }
 inline void ControllerBattery::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -7880,7 +7942,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 ControllerBattery::controllerid() const {
   return _internal_controllerid();
 }
 inline void ControllerBattery::_internal_set_controllerid(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
+
   controllerid_ = value;
 }
 inline void ControllerBattery::set_controllerid(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -7900,7 +7962,7 @@ inline bool ControllerBattery::connected() const {
   return _internal_connected();
 }
 inline void ControllerBattery::_internal_set_connected(bool value) {
-  
+
   connected_ = value;
 }
 inline void ControllerBattery::set_connected(bool value) {
@@ -7920,7 +7982,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 ControllerBattery::battery() const {
   return _internal_battery();
 }
 inline void ControllerBattery::_internal_set_battery(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   battery_ = value;
 }
 inline void ControllerBattery::set_battery(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -7943,7 +8005,7 @@ inline const std::string& DeviceBlob::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceBlob::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceBlob.devid)
 }
@@ -7956,11 +8018,11 @@ inline const std::string& DeviceBlob::_internal_devid() const {
   return devid_.Get();
 }
 inline void DeviceBlob::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceBlob::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceBlob::release_devid() {
@@ -7969,9 +8031,9 @@ inline std::string* DeviceBlob::release_devid() {
 }
 inline void DeviceBlob::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -7989,7 +8051,7 @@ inline const std::string& DeviceBlob::content() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceBlob::set_content(ArgT0&& arg0, ArgT... args) {
- 
+
  content_.SetBytes(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceBlob.content)
 }
@@ -8002,11 +8064,11 @@ inline const std::string& DeviceBlob::_internal_content() const {
   return content_.Get();
 }
 inline void DeviceBlob::_internal_set_content(const std::string& value) {
-  
+
   content_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceBlob::_internal_mutable_content() {
-  
+
   return content_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceBlob::release_content() {
@@ -8015,9 +8077,9 @@ inline std::string* DeviceBlob::release_content() {
 }
 inline void DeviceBlob::set_allocated_content(std::string* content) {
   if (content != nullptr) {
-    
+
   } else {
-    
+
   }
   content_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), content,
       GetArenaForAllocation());
@@ -8039,7 +8101,7 @@ inline const std::string& DeviceMonitorParameter::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceMonitorParameter::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceMonitorParameter.devid)
 }
@@ -8052,11 +8114,11 @@ inline const std::string& DeviceMonitorParameter::_internal_devid() const {
   return devid_.Get();
 }
 inline void DeviceMonitorParameter::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceMonitorParameter::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceMonitorParameter::release_devid() {
@@ -8065,9 +8127,9 @@ inline std::string* DeviceMonitorParameter::release_devid() {
 }
 inline void DeviceMonitorParameter::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -8086,7 +8148,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 DeviceMonitorParameter::width() const {
   return _internal_width();
 }
 inline void DeviceMonitorParameter::_internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   width_ = value;
 }
 inline void DeviceMonitorParameter::set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -8106,7 +8168,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 DeviceMonitorParameter::height() const {
   return _internal_height();
 }
 inline void DeviceMonitorParameter::_internal_set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   height_ = value;
 }
 inline void DeviceMonitorParameter::set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -8129,7 +8191,7 @@ inline const std::string& VideoFrameInfo::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void VideoFrameInfo::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.VideoFrameInfo.devid)
 }
@@ -8142,11 +8204,11 @@ inline const std::string& VideoFrameInfo::_internal_devid() const {
   return devid_.Get();
 }
 inline void VideoFrameInfo::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* VideoFrameInfo::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* VideoFrameInfo::release_devid() {
@@ -8155,9 +8217,9 @@ inline std::string* VideoFrameInfo::release_devid() {
 }
 inline void VideoFrameInfo::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -8176,7 +8238,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 VideoFrameInfo::framesize() const {
   return _internal_framesize();
 }
 inline void VideoFrameInfo::_internal_set_framesize(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   framesize_ = value;
 }
 inline void VideoFrameInfo::set_framesize(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -8196,7 +8258,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 VideoFrameInfo::width() const {
   return _internal_width();
 }
 inline void VideoFrameInfo::_internal_set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   width_ = value;
 }
 inline void VideoFrameInfo::set_width(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -8216,7 +8278,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 VideoFrameInfo::height() const {
   return _internal_height();
 }
 inline void VideoFrameInfo::_internal_set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   height_ = value;
 }
 inline void VideoFrameInfo::set_height(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -8236,7 +8298,7 @@ inline ::PROTOBUF_NAMESPACE_ID::uint32 VideoFrameInfo::bytesperline() const {
   return _internal_bytesperline();
 }
 inline void VideoFrameInfo::_internal_set_bytesperline(::PROTOBUF_NAMESPACE_ID::uint32 value) {
-  
+
   bytesperline_ = value;
 }
 inline void VideoFrameInfo::set_bytesperline(::PROTOBUF_NAMESPACE_ID::uint32 value) {
@@ -8256,7 +8318,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 VideoFrameInfo::pixformat() const {
   return _internal_pixformat();
 }
 inline void VideoFrameInfo::_internal_set_pixformat(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
+
   pixformat_ = value;
 }
 inline void VideoFrameInfo::set_pixformat(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8279,7 +8341,7 @@ inline const std::string& DeviceMonitorSharedMemoryKey::smkey() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceMonitorSharedMemoryKey::set_smkey(ArgT0&& arg0, ArgT... args) {
- 
+
  smkey_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceMonitorSharedMemoryKey.smkey)
 }
@@ -8292,11 +8354,11 @@ inline const std::string& DeviceMonitorSharedMemoryKey::_internal_smkey() const 
   return smkey_.Get();
 }
 inline void DeviceMonitorSharedMemoryKey::_internal_set_smkey(const std::string& value) {
-  
+
   smkey_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceMonitorSharedMemoryKey::_internal_mutable_smkey() {
-  
+
   return smkey_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceMonitorSharedMemoryKey::release_smkey() {
@@ -8305,9 +8367,9 @@ inline std::string* DeviceMonitorSharedMemoryKey::release_smkey() {
 }
 inline void DeviceMonitorSharedMemoryKey::set_allocated_smkey(std::string* smkey) {
   if (smkey != nullptr) {
-    
+
   } else {
-    
+
   }
   smkey_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), smkey,
       GetArenaForAllocation());
@@ -8329,7 +8391,7 @@ inline const std::string& VideoControlResult::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void VideoControlResult::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.VideoControlResult.devid)
 }
@@ -8342,11 +8404,11 @@ inline const std::string& VideoControlResult::_internal_devid() const {
   return devid_.Get();
 }
 inline void VideoControlResult::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* VideoControlResult::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* VideoControlResult::release_devid() {
@@ -8355,9 +8417,9 @@ inline std::string* VideoControlResult::release_devid() {
 }
 inline void VideoControlResult::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -8375,7 +8437,7 @@ inline const std::string& VideoControlResult::action() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void VideoControlResult::set_action(ArgT0&& arg0, ArgT... args) {
- 
+
  action_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.VideoControlResult.action)
 }
@@ -8388,11 +8450,11 @@ inline const std::string& VideoControlResult::_internal_action() const {
   return action_.Get();
 }
 inline void VideoControlResult::_internal_set_action(const std::string& value) {
-  
+
   action_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* VideoControlResult::_internal_mutable_action() {
-  
+
   return action_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* VideoControlResult::release_action() {
@@ -8401,9 +8463,9 @@ inline std::string* VideoControlResult::release_action() {
 }
 inline void VideoControlResult::set_allocated_action(std::string* action) {
   if (action != nullptr) {
-    
+
   } else {
-    
+
   }
   action_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), action,
       GetArenaForAllocation());
@@ -8422,7 +8484,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 VideoControlResult::result() const {
   return _internal_result();
 }
 inline void VideoControlResult::_internal_set_result(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
+
   result_ = value;
 }
 inline void VideoControlResult::set_result(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8442,7 +8504,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 VideoControlResult::errorcode() const {
   return _internal_errorcode();
 }
 inline void VideoControlResult::_internal_set_errorcode(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
+
   errorcode_ = value;
 }
 inline void VideoControlResult::set_errorcode(::PROTOBUF_NAMESPACE_ID::int32 value) {
@@ -8461,7 +8523,7 @@ inline const std::string& VideoControlResult::detail() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void VideoControlResult::set_detail(ArgT0&& arg0, ArgT... args) {
- 
+
  detail_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.VideoControlResult.detail)
 }
@@ -8474,11 +8536,11 @@ inline const std::string& VideoControlResult::_internal_detail() const {
   return detail_.Get();
 }
 inline void VideoControlResult::_internal_set_detail(const std::string& value) {
-  
+
   detail_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* VideoControlResult::_internal_mutable_detail() {
-  
+
   return detail_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* VideoControlResult::release_detail() {
@@ -8487,9 +8549,9 @@ inline std::string* VideoControlResult::release_detail() {
 }
 inline void VideoControlResult::set_allocated_detail(std::string* detail) {
   if (detail != nullptr) {
-    
+
   } else {
-    
+
   }
   detail_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), detail,
       GetArenaForAllocation());
@@ -8511,7 +8573,7 @@ inline const std::string& DeviceControlParameterJson::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceControlParameterJson::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceControlParameterJson.devid)
 }
@@ -8524,11 +8586,11 @@ inline const std::string& DeviceControlParameterJson::_internal_devid() const {
   return devid_.Get();
 }
 inline void DeviceControlParameterJson::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceControlParameterJson::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceControlParameterJson::release_devid() {
@@ -8537,9 +8599,9 @@ inline std::string* DeviceControlParameterJson::release_devid() {
 }
 inline void DeviceControlParameterJson::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -8557,7 +8619,7 @@ inline const std::string& DeviceControlParameterJson::parameter() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceControlParameterJson::set_parameter(ArgT0&& arg0, ArgT... args) {
- 
+
  parameter_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceControlParameterJson.parameter)
 }
@@ -8570,11 +8632,11 @@ inline const std::string& DeviceControlParameterJson::_internal_parameter() cons
   return parameter_.Get();
 }
 inline void DeviceControlParameterJson::_internal_set_parameter(const std::string& value) {
-  
+
   parameter_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceControlParameterJson::_internal_mutable_parameter() {
-  
+
   return parameter_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceControlParameterJson::release_parameter() {
@@ -8583,9 +8645,9 @@ inline std::string* DeviceControlParameterJson::release_parameter() {
 }
 inline void DeviceControlParameterJson::set_allocated_parameter(std::string* parameter) {
   if (parameter != nullptr) {
-    
+
   } else {
-    
+
   }
   parameter_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), parameter,
       GetArenaForAllocation());
@@ -8607,7 +8669,7 @@ inline const std::string& DeviceStateJson::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceStateJson::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceStateJson.devid)
 }
@@ -8620,11 +8682,11 @@ inline const std::string& DeviceStateJson::_internal_devid() const {
   return devid_.Get();
 }
 inline void DeviceStateJson::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceStateJson::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceStateJson::release_devid() {
@@ -8633,9 +8695,9 @@ inline std::string* DeviceStateJson::release_devid() {
 }
 inline void DeviceStateJson::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -8653,7 +8715,7 @@ inline const std::string& DeviceStateJson::statejson() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void DeviceStateJson::set_statejson(ArgT0&& arg0, ArgT... args) {
- 
+
  statejson_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.DeviceStateJson.statejson)
 }
@@ -8666,11 +8728,11 @@ inline const std::string& DeviceStateJson::_internal_statejson() const {
   return statejson_.Get();
 }
 inline void DeviceStateJson::_internal_set_statejson(const std::string& value) {
-  
+
   statejson_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* DeviceStateJson::_internal_mutable_statejson() {
-  
+
   return statejson_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* DeviceStateJson::release_statejson() {
@@ -8679,9 +8741,9 @@ inline std::string* DeviceStateJson::release_statejson() {
 }
 inline void DeviceStateJson::set_allocated_statejson(std::string* statejson) {
   if (statejson != nullptr) {
-    
+
   } else {
-    
+
   }
   statejson_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), statejson,
       GetArenaForAllocation());
@@ -8703,7 +8765,7 @@ inline const std::string& ScreenMonitorParameter::devid() const {
 template <typename ArgT0, typename... ArgT>
 inline PROTOBUF_ALWAYS_INLINE
 void ScreenMonitorParameter::set_devid(ArgT0&& arg0, ArgT... args) {
- 
+
  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
   // @@protoc_insertion_point(field_set:PXREAService.ScreenMonitorParameter.devid)
 }
@@ -8716,11 +8778,11 @@ inline const std::string& ScreenMonitorParameter::_internal_devid() const {
   return devid_.Get();
 }
 inline void ScreenMonitorParameter::_internal_set_devid(const std::string& value) {
-  
+
   devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
 inline std::string* ScreenMonitorParameter::_internal_mutable_devid() {
-  
+
   return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
 inline std::string* ScreenMonitorParameter::release_devid() {
@@ -8729,9 +8791,9 @@ inline std::string* ScreenMonitorParameter::release_devid() {
 }
 inline void ScreenMonitorParameter::set_allocated_devid(std::string* devid) {
   if (devid != nullptr) {
-    
+
   } else {
-    
+
   }
   devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
       GetArenaForAllocation());
@@ -8750,7 +8812,7 @@ inline ::PROTOBUF_NAMESPACE_ID::int32 ScreenMonitorParameter::quality() const {
   return _internal_quality();
 }
 inline void ScreenMonitorParameter::_internal_set_quality(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
+
   quality_ = value;
 }
 inline void ScreenMonitorParameter::set_quality(::PROTOBUF_NAMESPACE_ID::int32 value) {

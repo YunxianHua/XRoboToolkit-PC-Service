@@ -57,7 +57,7 @@ signals:
     void businessIDConfirmResultSignal(bool result);
     void setUidSignal(QString uid);
     void replyExistDevice(QString devid);
-    void recvDeviceMessageSignal(QString devid,int type,QByteArray msgbody);
+    void recvDeviceMessageSignal(QString devid,int type,QByteArray msgbody,QString ip);
 
     void replyFirstMonitorScreenFrame(QString devid, int width, int height);
     void replyMonitorScreenFrame(QString devid, QByteArray rtcFrame, int width, int height, int bytesPerLine, int pixFormat);
@@ -85,6 +85,7 @@ public slots:
 
     //rtc msg
     void onNewRtcConnection(QString sn);
+    void onNewRtcConnectionWithIP(QString sn, QString ip);
     void onRtcDeviceOffLine(QString sn);
 
     //send msg

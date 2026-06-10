@@ -16,6 +16,7 @@ public:
 
 signals:
     void userJoinedSignal(const QString& uid);
+    void userJoinedWithIPSignal(const QString& uid, const QString& ip);
     void userLeaveSignal(const QString& uid);
     void userBinaryMsgSignal(QString uid, int size, QByteArray byteArray);
     void connectStatusSignal(bool flag);

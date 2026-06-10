@@ -253,10 +253,11 @@ enum PXREAClientCallbackType
 
 ```
 
-用户获取的设备数据主要通过PXREADeviceStateJson这一回调获得,对应的回调函数参数如下
+PXREADeviceConnect 回调的 userData 为 PXREADevConnectInfo 指针，可读取设备 SN 和 IP；用户获取的设备状态数据主要通过 PXREADeviceStateJson 这一回调获得。
 
 | 回调类型         | context | type                 | userData | status |
 | ------------ | ------- | -------------------- | -------- | ------ |
+| 设备连接信息 | 用户自定义   | PXREADeviceConnect | PXREADevConnectInfo* | 连接状态 |
 | Json格式设备状态描述 | 用户自定义   | PXREADeviceStateJson |          | 0      |
 
 
@@ -524,6 +525,12 @@ inline void OnPXREAClientCallback(void* context,PXREAClientCallbackType type,int
     case PXREADeviceMissing:
         //qDebug() <<"device missing"<<(const char*)userData<< Qt::endl;
         break;
+    case PXREADeviceConnect:
+    {
+        auto& info = *((PXREADevConnectInfo*)userData);
+        //qDebug() <<"device connect"<<info.devID<<info.ip<<status<< Qt::endl;
+        break;
+    }
     case PXREADeviceStateJson:
         break;
     }

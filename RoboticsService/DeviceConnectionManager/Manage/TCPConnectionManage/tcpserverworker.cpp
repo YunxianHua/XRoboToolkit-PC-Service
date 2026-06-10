@@ -168,6 +168,15 @@ void DevConnSDK::TcpServerWorker::onNewTcpConnection()
 void DevConnSDK::TcpServerWorker::onNewTcpDeviceConfirmed(const QString& sn, const QString& tempIndex)
 {
     qDebug() << "new tcp connect device: " << sn << Qt::endl;
+    QString ip;
+    if(m_tempTcpMap.contains(tempIndex) && m_tempTcpMap[tempIndex].m_tcpPtr)
+    {
+        ip = m_tempTcpMap[tempIndex].m_tcpPtr->peerAddress().toString();
+        if(ip.startsWith("::ffff:"))
+        {
+            ip.remove(0, 7);
+        }
+    }
     if (!m_connectDevice.contains(sn))
     {
         TCPConnectionModel model;
@@ -196,6 +205,7 @@ void DevConnSDK::TcpServerWorker::onNewTcpDeviceConfirmed(const QString& sn, con
         else if(m_managerHandler->m_connectEventHandlerInQt != NULL)
         {
             emit m_managerHandler->m_connectEventHandlerInQt->userJoinedSignal(sn);
+            emit m_managerHandler->m_connectEventHandlerInQt->userJoinedWithIPSignal(sn, ip);
         }
         else
         {}
@@ -212,6 +222,10 @@ void DevConnSDK::TcpServerWorker::onNewTcpDeviceConfirmed(const QString& sn, con
             m_connectDevice[sn].setDisconnection();
             m_connectDevice[sn].setConnection(m_tempTcpMap[tempIndex].m_tcpPtr);
             m_tempTcpMap[tempIndex].setDisconnection();
+        }
+        if(m_managerHandler->m_connectEventHandlerInQt != NULL)
+        {
+            emit m_managerHandler->m_connectEventHandlerInQt->userJoinedWithIPSignal(sn, ip);
         }
     }
 }
@@ -290,7 +304,6 @@ void DevConnSDK::TcpServerWorker::onCheckConnection()
         qDebug() << uid << " disconnect." << Qt::endl;
     }
 }
-
 
 
 

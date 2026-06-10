@@ -125,7 +125,8 @@ inline void OnPXREAClientCallback(void* context,PXREAClientCallbackType type,int
         break;
     case PXREADeviceConnect:
     {
-        qDebug() <<"device connect"<<(const char*)userData<<status<< Qt::endl;
+        auto& info = *((PXREADevConnectInfo*)userData);
+        qDebug() <<"device connect"<<info.devID<<info.ip<<status<< Qt::endl;
     }
     break;
     case PXREADeviceStateJson:

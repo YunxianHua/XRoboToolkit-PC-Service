@@ -28,7 +28,7 @@ FeedbackController::FeedbackController(::grpc::ServerWriter<PXREAService::Server
         m_writer->Write(feedBackMsg);
     });
 
-    QObject::connect(this,&FeedbackController::replyDeviceMessage,this,[this](QString devid, int type, QByteArray msgbody){onReplyDeviceMessage(devid,type,msgbody);});
+    QObject::connect(this,&FeedbackController::replyDeviceMessage,this,[this](QString devid, int type, QByteArray msgbody, QString ip){onReplyDeviceMessage(devid,type,msgbody,ip);});
 
 }
 
@@ -69,7 +69,7 @@ void FeedbackController::StopFeedback()
 
 
 
-void FeedbackController::onReplyDeviceMessage(QString devid, int type, QByteArray msgbody)
+void FeedbackController::onReplyDeviceMessage(QString devid, int type, QByteArray msgbody, QString ip)
 {
     PXREAService::ServerFeedback feedBackMsg;
     switch (type)
@@ -109,6 +109,7 @@ void FeedbackController::onReplyDeviceMessage(QString devid, int type, QByteArra
         auto sts = new PXREAService::DeviceStatus();
         sts->set_devid(devid.toUtf8().constData());
         sts->set_status(QString::fromUtf8(msgbody).toInt());
+        sts->set_ip(ip.toUtf8().constData());
         feedBackMsg.set_allocated_devstatus(sts);
     }
     break;
@@ -223,8 +224,5 @@ void FeedbackController::onReplyDeviceMessage(QString devid, int type, QByteArra
         qDebug() <<"ignore msg type"<<type<< Qt::endl;
     }
 }
-
-
-
 
 

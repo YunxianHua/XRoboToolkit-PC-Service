@@ -302,6 +302,9 @@ inline constexpr DeviceStatus::Impl_::Impl_(
       : devid_(
             &::google::protobuf::internal::fixed_address_empty_string,
             ::_pbi::ConstantInitialized()),
+        ip_(
+            &::google::protobuf::internal::fixed_address_empty_string,
+            ::_pbi::ConstantInitialized()),
         status_{0},
         _cached_size_{0} {}
 
@@ -894,6 +897,7 @@ const ::uint32_t
         ~0u,  // no sizeof(Split)
         PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceStatus, _impl_.devid_),
         PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceStatus, _impl_.status_),
+        PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceStatus, _impl_.ip_),
         ~0u,  // no _has_bits_
         PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceModel, _internal_metadata_),
         ~0u,  // no _extensions_
@@ -1035,17 +1039,17 @@ static const ::_pbi::MigrationSchema
         {162, -1, -1, sizeof(::PXREAService::VrParam)},
         {173, -1, -1, sizeof(::PXREAService::DeviceBattery)},
         {183, -1, -1, sizeof(::PXREAService::DeviceStatus)},
-        {193, -1, -1, sizeof(::PXREAService::DeviceModel)},
-        {203, -1, -1, sizeof(::PXREAService::CurrentApplication)},
-        {213, -1, -1, sizeof(::PXREAService::ControllerBattery)},
-        {225, -1, -1, sizeof(::PXREAService::DeviceBlob)},
-        {235, -1, -1, sizeof(::PXREAService::DeviceMonitorParameter)},
-        {246, -1, -1, sizeof(::PXREAService::VideoFrameInfo)},
-        {260, -1, -1, sizeof(::PXREAService::DeviceMonitorSharedMemoryKey)},
-        {269, -1, -1, sizeof(::PXREAService::VideoControlResult)},
-        {282, -1, -1, sizeof(::PXREAService::DeviceControlParameterJson)},
-        {292, -1, -1, sizeof(::PXREAService::DeviceStateJson)},
-        {302, -1, -1, sizeof(::PXREAService::ScreenMonitorParameter)},
+        {194, -1, -1, sizeof(::PXREAService::DeviceModel)},
+        {204, -1, -1, sizeof(::PXREAService::CurrentApplication)},
+        {214, -1, -1, sizeof(::PXREAService::ControllerBattery)},
+        {226, -1, -1, sizeof(::PXREAService::DeviceBlob)},
+        {236, -1, -1, sizeof(::PXREAService::DeviceMonitorParameter)},
+        {247, -1, -1, sizeof(::PXREAService::VideoFrameInfo)},
+        {261, -1, -1, sizeof(::PXREAService::DeviceMonitorSharedMemoryKey)},
+        {270, -1, -1, sizeof(::PXREAService::VideoControlResult)},
+        {283, -1, -1, sizeof(::PXREAService::DeviceControlParameterJson)},
+        {293, -1, -1, sizeof(::PXREAService::DeviceStateJson)},
+        {303, -1, -1, sizeof(::PXREAService::ScreenMonitorParameter)},
 };
 static const ::_pb::Message* const file_default_instances[] = {
     &::PXREAService::_DeviceID_default_instance_._instance,
@@ -1120,99 +1124,99 @@ const char descriptor_table_protodef_PXREAService_2eproto[] ABSL_ATTRIBUTE_SECTI
     "(\0132\035.PXREAService.DeviceStateJsonH\000B\016\n\014F"
     "eedbackArgs\"5\n\007VrParam\022\r\n\005width\030\001 \001(\r\022\016\n"
     "\006height\030\002 \001(\r\022\013\n\003fps\030\003 \001(\r\"/\n\rDeviceBatt"
-    "ery\022\r\n\005devid\030\001 \001(\t\022\017\n\007battery\030\002 \001(\r\"-\n\014D"
+    "ery\022\r\n\005devid\030\001 \001(\t\022\017\n\007battery\030\002 \001(\r\"9\n\014D"
     "eviceStatus\022\r\n\005devid\030\001 \001(\t\022\016\n\006status\030\002 \001"
-    "(\005\"+\n\013DeviceModel\022\r\n\005devid\030\001 \001(\t\022\r\n\005mode"
-    "l\030\002 \001(\t\"4\n\022CurrentApplication\022\r\n\005devid\030\001"
-    " \001(\t\022\017\n\007appname\030\002 \001(\t\"\\\n\021ControllerBatte"
-    "ry\022\r\n\005devid\030\001 \001(\t\022\024\n\014controllerid\030\002 \001(\005\022"
-    "\021\n\tconnected\030\003 \001(\010\022\017\n\007battery\030\004 \001(\r\",\n\nD"
-    "eviceBlob\022\r\n\005devid\030\001 \001(\t\022\017\n\007content\030\002 \001("
-    "\014\"F\n\026DeviceMonitorParameter\022\r\n\005devid\030\001 \001"
-    "(\t\022\r\n\005width\030\002 \001(\r\022\016\n\006height\030\003 \001(\r\"z\n\016Vid"
-    "eoFrameInfo\022\r\n\005devid\030\001 \001(\t\022\021\n\tframeSize\030"
-    "\002 \001(\r\022\r\n\005width\030\003 \001(\r\022\016\n\006height\030\004 \001(\r\022\024\n\014"
-    "bytesPerLine\030\005 \001(\r\022\021\n\tpixFormat\030\006 \001(\005\"-\n"
-    "\034DeviceMonitorSharedMemoryKey\022\r\n\005smkey\030\001"
-    " \001(\t\"f\n\022VideoControlResult\022\r\n\005devid\030\001 \001("
-    "\t\022\016\n\006action\030\002 \001(\t\022\016\n\006result\030\003 \001(\005\022\021\n\terr"
-    "orcode\030\004 \001(\005\022\016\n\006detail\030\005 \001(\t\">\n\032DeviceCo"
-    "ntrolParameterJson\022\r\n\005devid\030\001 \001(\t\022\021\n\tpar"
-    "ameter\030\002 \001(\t\"3\n\017DeviceStateJson\022\r\n\005devid"
-    "\030\001 \001(\t\022\021\n\tstatejson\030\002 \001(\t\"8\n\026ScreenMonit"
-    "orParameter\022\r\n\005devid\030\001 \001(\t\022\017\n\007quality\030\002 "
-    "\001(\0052\224\026\n\tEAService\022F\n\rSendTexHandle\022\033.PXR"
-    "EAService.TexHandleInfo\032\026.google.protobu"
-    "f.Empty\"\000\022>\n\nGetBattery\022\026.PXREAService.D"
-    "eviceID\032\026.google.protobuf.Empty\"\000\022F\n\022Sta"
-    "rtControlDevice\022\026.PXREAService.DeviceID\032"
-    "\026.google.protobuf.Empty\"\000\022E\n\021StopControl"
+    "(\005\022\n\n\002ip\030\003 \001(\t\"+\n\013DeviceModel\022\r\n\005devid\030\001"
+    " \001(\t\022\r\n\005model\030\002 \001(\t\"4\n\022CurrentApplicatio"
+    "n\022\r\n\005devid\030\001 \001(\t\022\017\n\007appname\030\002 \001(\t\"\\\n\021Con"
+    "trollerBattery\022\r\n\005devid\030\001 \001(\t\022\024\n\014control"
+    "lerid\030\002 \001(\005\022\021\n\tconnected\030\003 \001(\010\022\017\n\007batter"
+    "y\030\004 \001(\r\",\n\nDeviceBlob\022\r\n\005devid\030\001 \001(\t\022\017\n\007"
+    "content\030\002 \001(\014\"F\n\026DeviceMonitorParameter\022"
+    "\r\n\005devid\030\001 \001(\t\022\r\n\005width\030\002 \001(\r\022\016\n\006height\030"
+    "\003 \001(\r\"z\n\016VideoFrameInfo\022\r\n\005devid\030\001 \001(\t\022\021"
+    "\n\tframeSize\030\002 \001(\r\022\r\n\005width\030\003 \001(\r\022\016\n\006heig"
+    "ht\030\004 \001(\r\022\024\n\014bytesPerLine\030\005 \001(\r\022\021\n\tpixFor"
+    "mat\030\006 \001(\005\"-\n\034DeviceMonitorSharedMemoryKe"
+    "y\022\r\n\005smkey\030\001 \001(\t\"f\n\022VideoControlResult\022\r"
+    "\n\005devid\030\001 \001(\t\022\016\n\006action\030\002 \001(\t\022\016\n\006result\030"
+    "\003 \001(\005\022\021\n\terrorcode\030\004 \001(\005\022\016\n\006detail\030\005 \001(\t"
+    "\">\n\032DeviceControlParameterJson\022\r\n\005devid\030"
+    "\001 \001(\t\022\021\n\tparameter\030\002 \001(\t\"3\n\017DeviceStateJ"
+    "son\022\r\n\005devid\030\001 \001(\t\022\021\n\tstatejson\030\002 \001(\t\"8\n"
+    "\026ScreenMonitorParameter\022\r\n\005devid\030\001 \001(\t\022\017"
+    "\n\007quality\030\002 \001(\0052\224\026\n\tEAService\022F\n\rSendTex"
+    "Handle\022\033.PXREAService.TexHandleInfo\032\026.go"
+    "ogle.protobuf.Empty\"\000\022>\n\nGetBattery\022\026.PX"
+    "REAService.DeviceID\032\026.google.protobuf.Em"
+    "pty\"\000\022F\n\022StartControlDevice\022\026.PXREAServi"
+    "ce.DeviceID\032\026.google.protobuf.Empty\"\000\022E\n"
+    "\021StopControlDevice\022\026.PXREAService.Device"
+    "ID\032\026.google.protobuf.Empty\"\000\022>\n\nLockDevi"
+    "ce\022\026.PXREAService.DeviceID\032\026.google.prot"
+    "obuf.Empty\"\000\022@\n\014UnlockDevice\022\026.PXREAServ"
+    "ice.DeviceID\032\026.google.protobuf.Empty\"\000\022G"
+    "\n\016StartPlayVideo\022\033.PXREAService.VideoPla"
+    "yInfo\032\026.google.protobuf.Empty\"\000\022A\n\rStopP"
+    "layVideo\022\026.PXREAService.DeviceID\032\026.googl"
+    "e.protobuf.Empty\"\000\022F\n\rSeekVideoTime\022\033.PX"
+    "REAService.VideoSeekInfo\032\026.google.protob"
+    "uf.Empty\"\000\022>\n\nPauseVideo\022\026.PXREAService."
+    "DeviceID\032\026.google.protobuf.Empty\"\000\022A\n\rCo"
+    "ntinueVideo\022\026.PXREAService.DeviceID\032\026.go"
+    "ogle.protobuf.Empty\"\000\022C\n\014StartPlayApp\022\031."
+    "PXREAService.AppPlayInfo\032\026.google.protob"
+    "uf.Empty\"\000\022B\n\013StopPlayApp\022\031.PXREAService"
+    ".AppPlayInfo\032\026.google.protobuf.Empty\"\000\022G"
+    "\n\020StartPlayPicture\022\031.PXREAService.PicPla"
+    "yInfo\032\026.google.protobuf.Empty\"\000\022C\n\017StopP"
+    "layPicture\022\026.PXREAService.DeviceID\032\026.goo"
+    "gle.protobuf.Empty\"\000\022K\n\017SetDeviceVolumn\022"
+    "\036.PXREAService.DeviceVolumnInfo\032\026.google"
+    ".protobuf.Empty\"\000\022>\n\nBackToHome\022\026.PXREAS"
+    "ervice.DeviceID\032\026.google.protobuf.Empty\""
+    "\000\022B\n\016ShutDownDevice\022\026.PXREAService.Devic"
+    "eID\032\026.google.protobuf.Empty\"\000\022A\n\rRestart"
     "Device\022\026.PXREAService.DeviceID\032\026.google."
-    "protobuf.Empty\"\000\022>\n\nLockDevice\022\026.PXREASe"
-    "rvice.DeviceID\032\026.google.protobuf.Empty\"\000"
-    "\022@\n\014UnlockDevice\022\026.PXREAService.DeviceID"
-    "\032\026.google.protobuf.Empty\"\000\022G\n\016StartPlayV"
-    "ideo\022\033.PXREAService.VideoPlayInfo\032\026.goog"
-    "le.protobuf.Empty\"\000\022A\n\rStopPlayVideo\022\026.P"
-    "XREAService.DeviceID\032\026.google.protobuf.E"
-    "mpty\"\000\022F\n\rSeekVideoTime\022\033.PXREAService.V"
-    "ideoSeekInfo\032\026.google.protobuf.Empty\"\000\022>"
-    "\n\nPauseVideo\022\026.PXREAService.DeviceID\032\026.g"
-    "oogle.protobuf.Empty\"\000\022A\n\rContinueVideo\022"
-    "\026.PXREAService.DeviceID\032\026.google.protobu"
-    "f.Empty\"\000\022C\n\014StartPlayApp\022\031.PXREAService"
-    ".AppPlayInfo\032\026.google.protobuf.Empty\"\000\022B"
-    "\n\013StopPlayApp\022\031.PXREAService.AppPlayInfo"
-    "\032\026.google.protobuf.Empty\"\000\022G\n\020StartPlayP"
-    "icture\022\031.PXREAService.PicPlayInfo\032\026.goog"
-    "le.protobuf.Empty\"\000\022C\n\017StopPlayPicture\022\026"
+    "protobuf.Empty\"\000\022L\n\021SendBytesToDevice\022\035."
+    "PXREAService.DeviceBytesInfo\032\026.google.pr"
+    "otobuf.Empty\"\000\022H\n\017SendBytesToRoom\022\033.PXRE"
+    "AService.RoomBytesInfo\032\026.google.protobuf"
+    ".Empty\"\000\022T\n\022StartMonitorScreen\022$.PXREASe"
+    "rvice.ScreenMonitorParameter\032\026.google.pr"
+    "otobuf.Empty\"\000\022Y\n\027SetMonitorScreenQualit"
+    "y\022$.PXREAService.ScreenMonitorParameter\032"
+    "\026.google.protobuf.Empty\"\000\022E\n\021StopMonitor"
+    "Screen\022\026.PXREAService.DeviceID\032\026.google."
+    "protobuf.Empty\"\000\022F\n\022StartMonitorStream\022\026"
     ".PXREAService.DeviceID\032\026.google.protobuf"
-    ".Empty\"\000\022K\n\017SetDeviceVolumn\022\036.PXREAServi"
-    "ce.DeviceVolumnInfo\032\026.google.protobuf.Em"
-    "pty\"\000\022>\n\nBackToHome\022\026.PXREAService.Devic"
-    "eID\032\026.google.protobuf.Empty\"\000\022B\n\016ShutDow"
-    "nDevice\022\026.PXREAService.DeviceID\032\026.google"
-    ".protobuf.Empty\"\000\022A\n\rRestartDevice\022\026.PXR"
-    "EAService.DeviceID\032\026.google.protobuf.Emp"
-    "ty\"\000\022L\n\021SendBytesToDevice\022\035.PXREAService"
-    ".DeviceBytesInfo\032\026.google.protobuf.Empty"
-    "\"\000\022H\n\017SendBytesToRoom\022\033.PXREAService.Roo"
-    "mBytesInfo\032\026.google.protobuf.Empty\"\000\022T\n\022"
-    "StartMonitorScreen\022$.PXREAService.Screen"
-    "MonitorParameter\032\026.google.protobuf.Empty"
-    "\"\000\022Y\n\027SetMonitorScreenQuality\022$.PXREASer"
-    "vice.ScreenMonitorParameter\032\026.google.pro"
-    "tobuf.Empty\"\000\022E\n\021StopMonitorScreen\022\026.PXR"
-    "EAService.DeviceID\032\026.google.protobuf.Emp"
-    "ty\"\000\022F\n\022StartMonitorStream\022\026.PXREAServic"
-    "e.DeviceID\032\026.google.protobuf.Empty\"\000\022E\n\021"
-    "StopMonitorStream\022\026.PXREAService.DeviceI"
-    "D\032\026.google.protobuf.Empty\"\000\022L\n\023WatchServ"
-    "erFeedback\022\023.PXREAService.VRPid\032\034.PXREAS"
-    "ervice.ServerFeedback\"\0000\001\022E\n\024CancelServe"
-    "rFeedback\022\023.PXREAService.VRPid\032\026.google."
-    "protobuf.Empty\"\000\022<\n\010SendBeat\022\026.google.pr"
-    "otobuf.Empty\032\026.google.protobuf.Empty\"\000\022A"
-    "\n\rGetCurrentApp\022\026.PXREAService.DeviceID\032"
-    "\026.google.protobuf.Empty\"\000\022B\n\016GetDeviceMo"
-    "del\022\026.PXREAService.DeviceID\032\026.google.pro"
-    "tobuf.Empty\"\000\022N\n\024GetControllerBattery\022\034."
-    "PXREAService.ControllerInfo\032\026.google.pro"
-    "tobuf.Empty\"\000\022I\n\016SetScreenState\022\035.PXREAS"
-    "ervice.ScreenStateInfo\032\026.google.protobuf"
-    ".Empty\"\000\022B\n\016GetScreenState\022\026.PXREAServic"
-    "e.DeviceID\032\026.google.protobuf.Empty\"\000\022j\n\""
-    "CustomControllerHomeButtonFunction\022*.PXR"
-    "EAService.ControllerHomeButtonFunction\032\026"
-    ".google.protobuf.Empty\"\000\022@\n\014RecenterView"
-    "\022\026.PXREAService.DeviceID\032\026.google.protob"
-    "uf.Empty\"\000\022I\n\016SetDeviceAlias\022\035.PXREAServ"
-    "ice.DeviceAliasInfo\032\026.google.protobuf.Em"
-    "pty\"\000\022B\n\016GetDeviceAlias\022\026.PXREAService.D"
-    "eviceID\032\026.google.protobuf.Empty\"\000\022W\n\021Dev"
-    "iceControlJson\022(.PXREAService.DeviceCont"
-    "rolParameterJson\032\026.google.protobuf.Empty"
-    "\"\000b\006proto3"
+    ".Empty\"\000\022E\n\021StopMonitorStream\022\026.PXREASer"
+    "vice.DeviceID\032\026.google.protobuf.Empty\"\000\022"
+    "L\n\023WatchServerFeedback\022\023.PXREAService.VR"
+    "Pid\032\034.PXREAService.ServerFeedback\"\0000\001\022E\n"
+    "\024CancelServerFeedback\022\023.PXREAService.VRP"
+    "id\032\026.google.protobuf.Empty\"\000\022<\n\010SendBeat"
+    "\022\026.google.protobuf.Empty\032\026.google.protob"
+    "uf.Empty\"\000\022A\n\rGetCurrentApp\022\026.PXREAServi"
+    "ce.DeviceID\032\026.google.protobuf.Empty\"\000\022B\n"
+    "\016GetDeviceModel\022\026.PXREAService.DeviceID\032"
+    "\026.google.protobuf.Empty\"\000\022N\n\024GetControll"
+    "erBattery\022\034.PXREAService.ControllerInfo\032"
+    "\026.google.protobuf.Empty\"\000\022I\n\016SetScreenSt"
+    "ate\022\035.PXREAService.ScreenStateInfo\032\026.goo"
+    "gle.protobuf.Empty\"\000\022B\n\016GetScreenState\022\026"
+    ".PXREAService.DeviceID\032\026.google.protobuf"
+    ".Empty\"\000\022j\n\"CustomControllerHomeButtonFu"
+    "nction\022*.PXREAService.ControllerHomeButt"
+    "onFunction\032\026.google.protobuf.Empty\"\000\022@\n\014"
+    "RecenterView\022\026.PXREAService.DeviceID\032\026.g"
+    "oogle.protobuf.Empty\"\000\022I\n\016SetDeviceAlias"
+    "\022\035.PXREAService.DeviceAliasInfo\032\026.google"
+    ".protobuf.Empty\"\000\022B\n\016GetDeviceAlias\022\026.PX"
+    "REAService.DeviceID\032\026.google.protobuf.Em"
+    "pty\"\000\022W\n\021DeviceControlJson\022(.PXREAServic"
+    "e.DeviceControlParameterJson\032\026.google.pr"
+    "otobuf.Empty\"\000b\006proto3"
 };
 static const ::_pbi::DescriptorTable* const descriptor_table_PXREAService_2eproto_deps[1] =
     {
@@ -1222,7 +1226,7 @@ static ::absl::once_flag descriptor_table_PXREAService_2eproto_once;
 PROTOBUF_CONSTINIT const ::_pbi::DescriptorTable descriptor_table_PXREAService_2eproto = {
     false,
     false,
-    5290,
+    5302,
     descriptor_table_protodef_PXREAService_2eproto,
     "PXREAService.proto",
     &descriptor_table_PXREAService_2eproto_once,
@@ -5592,6 +5596,7 @@ inline PROTOBUF_NDEBUG_INLINE DeviceStatus::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility, ::google::protobuf::Arena* arena,
     const Impl_& from, const ::PXREAService::DeviceStatus& from_msg)
       : devid_(arena, from.devid_),
+        ip_(arena, from.ip_),
         _cached_size_{0} {}
 
 DeviceStatus::DeviceStatus(
@@ -5611,6 +5616,7 @@ inline PROTOBUF_NDEBUG_INLINE DeviceStatus::Impl_::Impl_(
     ::google::protobuf::internal::InternalVisibility visibility,
     ::google::protobuf::Arena* arena)
       : devid_(arena),
+        ip_(arena),
         _cached_size_{0} {}
 
 inline void DeviceStatus::SharedCtor(::_pb::Arena* arena) {
@@ -5625,6 +5631,7 @@ DeviceStatus::~DeviceStatus() {
 inline void DeviceStatus::SharedDtor() {
   ABSL_DCHECK(GetArena() == nullptr);
   _impl_.devid_.Destroy();
+  _impl_.ip_.Destroy();
   _impl_.~Impl_();
 }
 
@@ -5649,15 +5656,15 @@ DeviceStatus::GetClassData() const {
   return _data_.base();
 }
 PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1
-const ::_pbi::TcParseTable<1, 2, 0, 39, 2> DeviceStatus::_table_ = {
+const ::_pbi::TcParseTable<2, 3, 0, 41, 2> DeviceStatus::_table_ = {
   {
     0,  // no _has_bits_
     0, // no _extensions_
-    2, 8,  // max_field_number, fast_idx_mask
+    3, 24,  // max_field_number, fast_idx_mask
     offsetof(decltype(_table_), field_lookup_table),
-    4294967292,  // skipmap
+    4294967288,  // skipmap
     offsetof(decltype(_table_), field_entries),
-    2,  // num_field_entries
+    3,  // num_field_entries
     0,  // num_aux_entries
     offsetof(decltype(_table_), field_names),  // no aux_entries
     &_DeviceStatus_default_instance_._instance,
@@ -5667,12 +5674,16 @@ const ::_pbi::TcParseTable<1, 2, 0, 39, 2> DeviceStatus::_table_ = {
     ::_pbi::TcParser::GetTable<::PXREAService::DeviceStatus>(),  // to_prefetch
     #endif  // PROTOBUF_PREFETCH_PARSE_TABLE
   }, {{
-    // int32 status = 2;
-    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(DeviceStatus, _impl_.status_), 63>(),
-     {16, 63, 0, PROTOBUF_FIELD_OFFSET(DeviceStatus, _impl_.status_)}},
+    {::_pbi::TcParser::MiniParse, {}},
     // string devid = 1;
     {::_pbi::TcParser::FastUS1,
      {10, 63, 0, PROTOBUF_FIELD_OFFSET(DeviceStatus, _impl_.devid_)}},
+    // int32 status = 2;
+    {::_pbi::TcParser::SingularVarintNoZag1<::uint32_t, offsetof(DeviceStatus, _impl_.status_), 63>(),
+     {16, 63, 0, PROTOBUF_FIELD_OFFSET(DeviceStatus, _impl_.status_)}},
+    // string ip = 3;
+    {::_pbi::TcParser::FastUS1,
+     {26, 63, 0, PROTOBUF_FIELD_OFFSET(DeviceStatus, _impl_.ip_)}},
   }}, {{
     65535, 65535
   }}, {{
@@ -5682,12 +5693,16 @@ const ::_pbi::TcParseTable<1, 2, 0, 39, 2> DeviceStatus::_table_ = {
     // int32 status = 2;
     {PROTOBUF_FIELD_OFFSET(DeviceStatus, _impl_.status_), 0, 0,
     (0 | ::_fl::kFcSingular | ::_fl::kInt32)},
+    // string ip = 3;
+    {PROTOBUF_FIELD_OFFSET(DeviceStatus, _impl_.ip_), 0, 0,
+    (0 | ::_fl::kFcSingular | ::_fl::kUtf8String | ::_fl::kRepAString)},
   }},
   // no aux_entries
   {{
-    "\31\5\0\0\0\0\0\0"
+    "\31\5\0\2\0\0\0\0"
     "PXREAService.DeviceStatus"
     "devid"
+    "ip"
   }},
 };
 
@@ -5699,6 +5714,7 @@ PROTOBUF_NOINLINE void DeviceStatus::Clear() {
   (void) cached_has_bits;
 
   _impl_.devid_.ClearToEmpty();
+  _impl_.ip_.ClearToEmpty();
   _impl_.status_ = 0;
   _internal_metadata_.Clear<::google::protobuf::UnknownFieldSet>();
 }
@@ -5725,6 +5741,14 @@ PROTOBUF_NOINLINE void DeviceStatus::Clear() {
             stream, this->_internal_status(), target);
   }
 
+  // string ip = 3;
+  if (!this->_internal_ip().empty()) {
+    const std::string& _s = this->_internal_ip();
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+        _s.data(), static_cast<int>(_s.length()), ::google::protobuf::internal::WireFormatLite::SERIALIZE, "PXREAService.DeviceStatus.ip");
+    target = stream->WriteStringMaybeAliased(3, _s, target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target =
         ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
@@ -5749,6 +5773,12 @@ PROTOBUF_NOINLINE void DeviceStatus::Clear() {
                                     this->_internal_devid());
   }
 
+  // string ip = 3;
+  if (!this->_internal_ip().empty()) {
+    total_size += 1 + ::google::protobuf::internal::WireFormatLite::StringSize(
+                                    this->_internal_ip());
+  }
+
   // int32 status = 2;
   if (this->_internal_status() != 0) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(
@@ -5770,6 +5800,9 @@ void DeviceStatus::MergeImpl(::google::protobuf::MessageLite& to_msg, const ::go
   if (!from._internal_devid().empty()) {
     _this->_internal_set_devid(from._internal_devid());
   }
+  if (!from._internal_ip().empty()) {
+    _this->_internal_set_ip(from._internal_ip());
+  }
   if (from._internal_status() != 0) {
     _this->_impl_.status_ = from._impl_.status_;
   }
@@ -5790,6 +5823,7 @@ void DeviceStatus::InternalSwap(DeviceStatus* PROTOBUF_RESTRICT other) {
   ABSL_DCHECK_EQ(arena, other->GetArena());
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.devid_, &other->_impl_.devid_, arena);
+  ::_pbi::ArenaStringPtr::InternalSwap(&_impl_.ip_, &other->_impl_.ip_, arena);
         swap(_impl_.status_, other->_impl_.status_);
 }
 
