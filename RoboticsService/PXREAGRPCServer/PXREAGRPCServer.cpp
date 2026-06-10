@@ -13,7 +13,7 @@ void PXREAServerAPI::init(quint64 devMng, bool login, bool runAsService)
     m_addrPort = listenStr.toUtf8().constData();
     m_devMng = (DeviceManagement*)devMng;
     startService();
-    connect(&m_devMng->m_connectEvent, &DevConnSDK::ConnectEventHandlerInQt::userJoinedSignal, this, &PXREAServerAPI::replyDeviceFind);
+    connect(&m_devMng->m_connectEvent, &DevConnSDK::ConnectEventHandlerInQt::userJoinedWithIPSignal, this, &PXREAServerAPI::replyDeviceFind);
     connect(&m_devMng->m_connectEvent, &DevConnSDK::ConnectEventHandlerInQt::userLeaveSignal, this, &PXREAServerAPI::replyDeviceMissing);
     connect(m_devMng,&DeviceManagement::replyExistDevice,this,&PXREAServerAPI::replyDeviceFind);
     connect(m_devMng,&DeviceManagement::recvDeviceMessageSignal,this,&PXREAServerAPI::replyDeviceMessage);

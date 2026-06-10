@@ -29,7 +29,7 @@ public:
 signals:
     void sdkClientAdded(int pid);
     void sdkClientRemoved(int pid);
-    void replyDeviceFind(QString devid);
+    void replyDeviceFind(QString devid, QString ip);
     void replyDeviceMissing(QString devid);
     void replyDeviceMessage(QString devid,int type,QByteArray msgbody,QString ip);
 

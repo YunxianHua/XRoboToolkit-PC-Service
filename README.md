@@ -305,11 +305,12 @@ enum PXREAClientCallbackType
 
 ```
 
-PXREADeviceConnect callback userData is a PXREADevConnectInfo pointer, which contains the device SN and IP. Device state data is mainly obtained through the PXREADeviceStateJson callback.
+PXREADeviceFind callback userData is a PXREADevFindInfo pointer, which contains the device SN and IP. Device state data is mainly obtained through the PXREADeviceStateJson callback.
 
 | Callback Type         | context | type                 | userData | status |
 | ------------ | ------- | -------------------- | -------- | ------ |
-| Device connection information | User-defined   | PXREADeviceConnect | PXREADevConnectInfo* | Connection status |
+| Device find information | User-defined   | PXREADeviceFind | PXREADevFindInfo* | 0 |
+| Device connection status | User-defined   | PXREADeviceConnect | const char* | Connection status |
 | JSON format device state description | User-defined   | PXREADeviceStateJson |          | 0      |
 
 
@@ -579,15 +580,17 @@ inline void OnPXREAClientCallback(void* context,PXREAClientCallbackType type,int
         //qDebug() <<"server disconnect"  << Qt::endl;
         break;
     case PXREADeviceFind:
-        //qDebug() <<"device find"<<(const char*)userData<< Qt::endl;
+    {
+        auto& info = *((PXREADevFindInfo*)userData);
+        //qDebug() <<"device find"<<info.devID<<info.ip<< Qt::endl;
         break;
+    }
     case PXREADeviceMissing:
         //qDebug() <<"device missing"<<(const char*)userData<< Qt::endl;
         break;
     case PXREADeviceConnect:
     {
-        auto& info = *((PXREADevConnectInfo*)userData);
-        //qDebug() <<"device connect"<<info.devID<<info.ip<<status<< Qt::endl;
+        //qDebug() <<"device connect"<<(const char*)userData<<status<< Qt::endl;
         break;
     }
     case PXREADeviceStateJson:

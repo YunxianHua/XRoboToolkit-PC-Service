@@ -17,15 +17,17 @@ void OnPXREAClientCallback(void* context,PXREAClientCallbackType type,int status
         std::cout  <<"server disconnect"  << std::endl;
         break;
     case PXREADeviceFind:
-        std::cout << "device find"<< (const char*)userData << std::endl;
+    {
+        auto& info = *((PXREADevFindInfo*)userData);
+        std::cout << "device find"<<info.devID<<" "<<info.ip<< std::endl;
         break;
+    }
     case PXREADeviceMissing:
         std::cout <<"device missing"<<(const char*)userData<<  std::endl;
         break;
     case PXREADeviceConnect:
     {
-        auto& info = *((PXREADevConnectInfo*)userData);
-        std::cout <<"device connect"<<info.devID<<" "<<info.ip<<" "<<status<< std::endl;
+        std::cout <<"device connect"<<(const char*)userData<<" "<<status<< std::endl;
         break;
     }
     case PXREADeviceStateJson:

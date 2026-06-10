@@ -38,7 +38,7 @@ void DeviceManagement::ReplyOnlineDevice()
         if(iter.value().m_isOnline)
         {
             qDebug() <<"reply existing device"<<iter.key()<< Qt::endl;
-            emit replyExistDevice(iter.key());
+            emit replyExistDevice(iter.key(), iter.value().m_ip);
         }
     }
 }

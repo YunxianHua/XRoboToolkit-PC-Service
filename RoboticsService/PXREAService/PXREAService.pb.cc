@@ -237,10 +237,22 @@ struct DeviceBatteryDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DeviceBatteryDefaultTypeInternal _DeviceBattery_default_instance_;
+constexpr DeviceInfo::DeviceInfo(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : devid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , ip_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+struct DeviceInfoDefaultTypeInternal {
+  constexpr DeviceInfoDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~DeviceInfoDefaultTypeInternal() {}
+  union {
+    DeviceInfo _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DeviceInfoDefaultTypeInternal _DeviceInfo_default_instance_;
 constexpr DeviceStatus::DeviceStatus(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : devid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
-  , ip_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , status_(0){}
 struct DeviceStatusDefaultTypeInternal {
   constexpr DeviceStatusDefaultTypeInternal()
@@ -404,7 +416,7 @@ struct ScreenMonitorParameterDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT ScreenMonitorParameterDefaultTypeInternal _ScreenMonitorParameter_default_instance_;
 }  // namespace PXREAService
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_PXREAService_2eproto[29];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_PXREAService_2eproto[30];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_PXREAService_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_PXREAService_2eproto = nullptr;
 
@@ -540,6 +552,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_PXREAService_2eproto::offsets[
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
+  ::PROTOBUF_NAMESPACE_ID::internal::kInvalidFieldOffsetTag,
   PROTOBUF_FIELD_OFFSET(::PXREAService::ServerFeedback, FeedbackArgs_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::PXREAService::VrParam, _internal_metadata_),
@@ -559,6 +572,14 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_PXREAService_2eproto::offsets[
   PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceBattery, devid_),
   PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceBattery, battery_),
   ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceInfo, devid_),
+  PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceInfo, ip_),
+  ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceStatus, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
@@ -566,7 +587,6 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_PXREAService_2eproto::offsets[
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceStatus, devid_),
   PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceStatus, status_),
-  PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceStatus, ip_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::PXREAService::DeviceModel, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -681,20 +701,21 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 94, -1, -1, sizeof(::PXREAService::ScreenStateInfo)},
   { 102, -1, -1, sizeof(::PXREAService::DeviceAliasInfo)},
   { 110, -1, -1, sizeof(::PXREAService::ServerFeedback)},
-  { 132, -1, -1, sizeof(::PXREAService::VrParam)},
-  { 141, -1, -1, sizeof(::PXREAService::DeviceBattery)},
-  { 149, -1, -1, sizeof(::PXREAService::DeviceStatus)},
-  { 158, -1, -1, sizeof(::PXREAService::DeviceModel)},
-  { 166, -1, -1, sizeof(::PXREAService::CurrentApplication)},
-  { 174, -1, -1, sizeof(::PXREAService::ControllerBattery)},
-  { 184, -1, -1, sizeof(::PXREAService::DeviceBlob)},
-  { 192, -1, -1, sizeof(::PXREAService::DeviceMonitorParameter)},
-  { 201, -1, -1, sizeof(::PXREAService::VideoFrameInfo)},
-  { 213, -1, -1, sizeof(::PXREAService::DeviceMonitorSharedMemoryKey)},
-  { 220, -1, -1, sizeof(::PXREAService::VideoControlResult)},
-  { 231, -1, -1, sizeof(::PXREAService::DeviceControlParameterJson)},
-  { 239, -1, -1, sizeof(::PXREAService::DeviceStateJson)},
-  { 247, -1, -1, sizeof(::PXREAService::ScreenMonitorParameter)},
+  { 133, -1, -1, sizeof(::PXREAService::VrParam)},
+  { 142, -1, -1, sizeof(::PXREAService::DeviceBattery)},
+  { 150, -1, -1, sizeof(::PXREAService::DeviceInfo)},
+  { 158, -1, -1, sizeof(::PXREAService::DeviceStatus)},
+  { 166, -1, -1, sizeof(::PXREAService::DeviceModel)},
+  { 174, -1, -1, sizeof(::PXREAService::CurrentApplication)},
+  { 182, -1, -1, sizeof(::PXREAService::ControllerBattery)},
+  { 192, -1, -1, sizeof(::PXREAService::DeviceBlob)},
+  { 200, -1, -1, sizeof(::PXREAService::DeviceMonitorParameter)},
+  { 209, -1, -1, sizeof(::PXREAService::VideoFrameInfo)},
+  { 221, -1, -1, sizeof(::PXREAService::DeviceMonitorSharedMemoryKey)},
+  { 228, -1, -1, sizeof(::PXREAService::VideoControlResult)},
+  { 239, -1, -1, sizeof(::PXREAService::DeviceControlParameterJson)},
+  { 247, -1, -1, sizeof(::PXREAService::DeviceStateJson)},
+  { 255, -1, -1, sizeof(::PXREAService::ScreenMonitorParameter)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -715,6 +736,7 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::PXREAService::_ServerFeedback_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::PXREAService::_VrParam_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::PXREAService::_DeviceBattery_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::PXREAService::_DeviceInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::PXREAService::_DeviceStatus_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::PXREAService::_DeviceModel_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::PXREAService::_CurrentApplication_default_instance_),
@@ -748,7 +770,7 @@ const char descriptor_table_protodef_PXREAService_2eproto[] PROTOBUF_SECTION_VAR
   "uttontype\030\002 \001(\t\022\024\n\014homefunction\030\003 \001(\t\"/\n"
   "\017ScreenStateInfo\022\r\n\005devid\030\001 \001(\t\022\r\n\005state"
   "\030\002 \001(\005\"/\n\017DeviceAliasInfo\022\r\n\005devid\030\001 \001(\t"
-  "\022\r\n\005alias\030\002 \001(\t\"\231\006\n\016ServerFeedback\022\014\n\004na"
+  "\022\r\n\005alias\030\002 \001(\t\"\306\006\n\016ServerFeedback\022\014\n\004na"
   "me\030\001 \001(\t\022(\n\007vrparam\030\002 \001(\0132\025.PXREAService"
   ".VrParamH\000\022\017\n\005devid\030\003 \001(\tH\000\0221\n\ndevbatter"
   "y\030\004 \001(\0132\033.PXREAService.DeviceBatteryH\000\022/"
@@ -767,51 +789,53 @@ const char descriptor_table_protodef_PXREAService_2eproto[] PROTOBUF_SECTION_VAR
   "\001(\0132 .PXREAService.VideoControlResultH\000\022"
   "8\n\017devicealiasinfo\030\016 \001(\0132\035.PXREAService."
   "DeviceAliasInfoH\000\0228\n\017devicestatejson\030\017 \001"
-  "(\0132\035.PXREAService.DeviceStateJsonH\000B\016\n\014F"
-  "eedbackArgs\"5\n\007VrParam\022\r\n\005width\030\001 \001(\r\022\016\n"
-  "\006height\030\002 \001(\r\022\013\n\003fps\030\003 \001(\r\"/\n\rDeviceBatt"
-  "ery\022\r\n\005devid\030\001 \001(\t\022\017\n\007battery\030\002 \001(\r\"9\n\014D"
-  "eviceStatus\022\r\n\005devid\030\001 \001(\t\022\016\n\006status\030\002 \001"
-  "(\005\022\n\n\002ip\030\003 \001(\t\"+\n\013DeviceModel\022\r\n\005devid\030\001"
-  " \001(\t\022\r\n\005model\030\002 \001(\t\"4\n\022CurrentApplicatio"
-  "n\022\r\n\005devid\030\001 \001(\t\022\017\n\007appname\030\002 \001(\t\"\\\n\021Con"
-  "trollerBattery\022\r\n\005devid\030\001 \001(\t\022\024\n\014control"
-  "lerid\030\002 \001(\005\022\021\n\tconnected\030\003 \001(\010\022\017\n\007batter"
-  "y\030\004 \001(\r\",\n\nDeviceBlob\022\r\n\005devid\030\001 \001(\t\022\017\n\007"
-  "content\030\002 \001(\014\"F\n\026DeviceMonitorParameter\022"
-  "\r\n\005devid\030\001 \001(\t\022\r\n\005width\030\002 \001(\r\022\016\n\006height\030"
-  "\003 \001(\r\"z\n\016VideoFrameInfo\022\r\n\005devid\030\001 \001(\t\022\021"
-  "\n\tframeSize\030\002 \001(\r\022\r\n\005width\030\003 \001(\r\022\016\n\006heig"
-  "ht\030\004 \001(\r\022\024\n\014bytesPerLine\030\005 \001(\r\022\021\n\tpixFor"
-  "mat\030\006 \001(\005\"-\n\034DeviceMonitorSharedMemoryKe"
-  "y\022\r\n\005smkey\030\001 \001(\t\"f\n\022VideoControlResult\022\r"
-  "\n\005devid\030\001 \001(\t\022\016\n\006action\030\002 \001(\t\022\016\n\006result\030"
-  "\003 \001(\005\022\021\n\terrorcode\030\004 \001(\005\022\016\n\006detail\030\005 \001(\t"
-  "\">\n\032DeviceControlParameterJson\022\r\n\005devid\030"
-  "\001 \001(\t\022\021\n\tparameter\030\002 \001(\t\"3\n\017DeviceStateJ"
-  "son\022\r\n\005devid\030\001 \001(\t\022\021\n\tstatejson\030\002 \001(\t\"8\n"
-  "\026ScreenMonitorParameter\022\r\n\005devid\030\001 \001(\t\022\017"
-  "\n\007quality\030\002 \001(\0052\317\003\n\tEAService\022L\n\021SendByt"
-  "esToDevice\022\035.PXREAService.DeviceBytesInf"
-  "o\032\026.google.protobuf.Empty\"\000\022H\n\017SendBytes"
-  "ToRoom\022\033.PXREAService.RoomBytesInfo\032\026.go"
-  "ogle.protobuf.Empty\"\000\022L\n\023WatchServerFeed"
-  "back\022\023.PXREAService.VRPid\032\034.PXREAService"
-  ".ServerFeedback\"\0000\001\022E\n\024CancelServerFeedb"
-  "ack\022\023.PXREAService.VRPid\032\026.google.protob"
-  "uf.Empty\"\000\022<\n\010SendBeat\022\026.google.protobuf"
-  ".Empty\032\026.google.protobuf.Empty\"\000\022W\n\021Devi"
-  "ceControlJson\022(.PXREAService.DeviceContr"
-  "olParameterJson\032\026.google.protobuf.Empty\""
-  "\000b\006proto3"
+  "(\0132\035.PXREAService.DeviceStateJsonH\000\022+\n\007d"
+  "evinfo\030\020 \001(\0132\030.PXREAService.DeviceInfoH\000"
+  "B\016\n\014FeedbackArgs\"5\n\007VrParam\022\r\n\005width\030\001 \001"
+  "(\r\022\016\n\006height\030\002 \001(\r\022\013\n\003fps\030\003 \001(\r\"/\n\rDevic"
+  "eBattery\022\r\n\005devid\030\001 \001(\t\022\017\n\007battery\030\002 \001(\r"
+  "\"\'\n\nDeviceInfo\022\r\n\005devid\030\001 \001(\t\022\n\n\002ip\030\002 \001("
+  "\t\"-\n\014DeviceStatus\022\r\n\005devid\030\001 \001(\t\022\016\n\006stat"
+  "us\030\002 \001(\005\"+\n\013DeviceModel\022\r\n\005devid\030\001 \001(\t\022\r"
+  "\n\005model\030\002 \001(\t\"4\n\022CurrentApplication\022\r\n\005d"
+  "evid\030\001 \001(\t\022\017\n\007appname\030\002 \001(\t\"\\\n\021Controlle"
+  "rBattery\022\r\n\005devid\030\001 \001(\t\022\024\n\014controllerid\030"
+  "\002 \001(\005\022\021\n\tconnected\030\003 \001(\010\022\017\n\007battery\030\004 \001("
+  "\r\",\n\nDeviceBlob\022\r\n\005devid\030\001 \001(\t\022\017\n\007conten"
+  "t\030\002 \001(\014\"F\n\026DeviceMonitorParameter\022\r\n\005dev"
+  "id\030\001 \001(\t\022\r\n\005width\030\002 \001(\r\022\016\n\006height\030\003 \001(\r\""
+  "z\n\016VideoFrameInfo\022\r\n\005devid\030\001 \001(\t\022\021\n\tfram"
+  "eSize\030\002 \001(\r\022\r\n\005width\030\003 \001(\r\022\016\n\006height\030\004 \001"
+  "(\r\022\024\n\014bytesPerLine\030\005 \001(\r\022\021\n\tpixFormat\030\006 "
+  "\001(\005\"-\n\034DeviceMonitorSharedMemoryKey\022\r\n\005s"
+  "mkey\030\001 \001(\t\"f\n\022VideoControlResult\022\r\n\005devi"
+  "d\030\001 \001(\t\022\016\n\006action\030\002 \001(\t\022\016\n\006result\030\003 \001(\005\022"
+  "\021\n\terrorcode\030\004 \001(\005\022\016\n\006detail\030\005 \001(\t\">\n\032De"
+  "viceControlParameterJson\022\r\n\005devid\030\001 \001(\t\022"
+  "\021\n\tparameter\030\002 \001(\t\"3\n\017DeviceStateJson\022\r\n"
+  "\005devid\030\001 \001(\t\022\021\n\tstatejson\030\002 \001(\t\"8\n\026Scree"
+  "nMonitorParameter\022\r\n\005devid\030\001 \001(\t\022\017\n\007qual"
+  "ity\030\002 \001(\0052\317\003\n\tEAService\022L\n\021SendBytesToDe"
+  "vice\022\035.PXREAService.DeviceBytesInfo\032\026.go"
+  "ogle.protobuf.Empty\"\000\022H\n\017SendBytesToRoom"
+  "\022\033.PXREAService.RoomBytesInfo\032\026.google.p"
+  "rotobuf.Empty\"\000\022L\n\023WatchServerFeedback\022\023"
+  ".PXREAService.VRPid\032\034.PXREAService.Serve"
+  "rFeedback\"\0000\001\022E\n\024CancelServerFeedback\022\023."
+  "PXREAService.VRPid\032\026.google.protobuf.Emp"
+  "ty\"\000\022<\n\010SendBeat\022\026.google.protobuf.Empty"
+  "\032\026.google.protobuf.Empty\"\000\022W\n\021DeviceCont"
+  "rolJson\022(.PXREAService.DeviceControlPara"
+  "meterJson\032\026.google.protobuf.Empty\"\000b\006pro"
+  "to3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_PXREAService_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2fempty_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_PXREAService_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_PXREAService_2eproto = {
-  false, false, 2929, descriptor_table_protodef_PXREAService_2eproto, "PXREAService.proto",
-  &descriptor_table_PXREAService_2eproto_once, descriptor_table_PXREAService_2eproto_deps, 1, 29,
+  false, false, 3003, descriptor_table_protodef_PXREAService_2eproto, "PXREAService.proto",
+  &descriptor_table_PXREAService_2eproto_once, descriptor_table_PXREAService_2eproto_deps, 1, 30,
   schemas, file_default_instances, TableStruct_PXREAService_2eproto::offsets,
   file_level_metadata_PXREAService_2eproto, file_level_enum_descriptors_PXREAService_2eproto, file_level_service_descriptors_PXREAService_2eproto,
 };
@@ -3989,6 +4013,7 @@ class ServerFeedback::_Internal {
   static const ::PXREAService::VideoControlResult& videocontrolresult(const ServerFeedback* msg);
   static const ::PXREAService::DeviceAliasInfo& devicealiasinfo(const ServerFeedback* msg);
   static const ::PXREAService::DeviceStateJson& devicestatejson(const ServerFeedback* msg);
+  static const ::PXREAService::DeviceInfo& devinfo(const ServerFeedback* msg);
 };
 
 const ::PXREAService::VrParam&
@@ -4042,6 +4067,10 @@ ServerFeedback::_Internal::devicealiasinfo(const ServerFeedback* msg) {
 const ::PXREAService::DeviceStateJson&
 ServerFeedback::_Internal::devicestatejson(const ServerFeedback* msg) {
   return *msg->FeedbackArgs_.devicestatejson_;
+}
+const ::PXREAService::DeviceInfo&
+ServerFeedback::_Internal::devinfo(const ServerFeedback* msg) {
+  return *msg->FeedbackArgs_.devinfo_;
 }
 void ServerFeedback::set_allocated_vrparam(::PXREAService::VrParam* vrparam) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
@@ -4238,6 +4267,21 @@ void ServerFeedback::set_allocated_devicestatejson(::PXREAService::DeviceStateJs
   }
   // @@protoc_insertion_point(field_set_allocated:PXREAService.ServerFeedback.devicestatejson)
 }
+void ServerFeedback::set_allocated_devinfo(::PXREAService::DeviceInfo* devinfo) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  clear_FeedbackArgs();
+  if (devinfo) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::PXREAService::DeviceInfo>::GetOwningArena(devinfo);
+    if (message_arena != submessage_arena) {
+      devinfo = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, devinfo, submessage_arena);
+    }
+    set_has_devinfo();
+    FeedbackArgs_.devinfo_ = devinfo;
+  }
+  // @@protoc_insertion_point(field_set_allocated:PXREAService.ServerFeedback.devinfo)
+}
 ServerFeedback::ServerFeedback(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
@@ -4311,6 +4355,10 @@ ServerFeedback::ServerFeedback(const ServerFeedback& from)
     }
     case kDevicestatejson: {
       _internal_mutable_devicestatejson()->::PXREAService::DeviceStateJson::MergeFrom(from._internal_devicestatejson());
+      break;
+    }
+    case kDevinfo: {
+      _internal_mutable_devinfo()->::PXREAService::DeviceInfo::MergeFrom(from._internal_devinfo());
       break;
     }
     case FEEDBACKARGS_NOT_SET: {
@@ -4432,6 +4480,12 @@ void ServerFeedback::clear_FeedbackArgs() {
     case kDevicestatejson: {
       if (GetArenaForAllocation() == nullptr) {
         delete FeedbackArgs_.devicestatejson_;
+      }
+      break;
+    }
+    case kDevinfo: {
+      if (GetArenaForAllocation() == nullptr) {
+        delete FeedbackArgs_.devinfo_;
       }
       break;
     }
@@ -4580,6 +4634,14 @@ const char* ServerFeedback::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 122)) {
           ptr = ctx->ParseMessage(_internal_mutable_devicestatejson(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .PXREAService.DeviceInfo devinfo = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 130)) {
+          ptr = ctx->ParseMessage(_internal_mutable_devinfo(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4737,6 +4799,14 @@ failure:
         15, _Internal::devicestatejson(this), target, stream);
   }
 
+  // .PXREAService.DeviceInfo devinfo = 16;
+  if (_internal_has_devinfo()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        16, _Internal::devinfo(this), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4859,6 +4929,13 @@ size_t ServerFeedback::ByteSizeLong() const {
           *FeedbackArgs_.devicestatejson_);
       break;
     }
+    // .PXREAService.DeviceInfo devinfo = 16;
+    case kDevinfo: {
+      total_size += 2 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *FeedbackArgs_.devinfo_);
+      break;
+    }
     case FEEDBACKARGS_NOT_SET: {
       break;
     }
@@ -4943,6 +5020,10 @@ void ServerFeedback::MergeFrom(const ServerFeedback& from) {
     }
     case kDevicestatejson: {
       _internal_mutable_devicestatejson()->::PXREAService::DeviceStateJson::MergeFrom(from._internal_devicestatejson());
+      break;
+    }
+    case kDevinfo: {
+      _internal_mutable_devinfo()->::PXREAService::DeviceInfo::MergeFrom(from._internal_devinfo());
       break;
     }
     case FEEDBACKARGS_NOT_SET: {
@@ -5442,6 +5523,246 @@ void DeviceBattery::InternalSwap(DeviceBattery* other) {
 
 // ===================================================================
 
+class DeviceInfo::_Internal {
+ public:
+};
+
+DeviceInfo::DeviceInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:PXREAService.DeviceInfo)
+}
+DeviceInfo::DeviceInfo(const DeviceInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  devid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_devid().empty()) {
+    devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_devid(),
+      GetArenaForAllocation());
+  }
+  ip_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_ip().empty()) {
+    ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_ip(),
+      GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:PXREAService.DeviceInfo)
+}
+
+void DeviceInfo::SharedCtor() {
+devid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+ip_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+DeviceInfo::~DeviceInfo() {
+  // @@protoc_insertion_point(destructor:PXREAService.DeviceInfo)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void DeviceInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  devid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ip_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void DeviceInfo::ArenaDtor(void* object) {
+  DeviceInfo* _this = reinterpret_cast< DeviceInfo* >(object);
+  (void)_this;
+}
+void DeviceInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void DeviceInfo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void DeviceInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:PXREAService.DeviceInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  devid_.ClearToEmpty();
+  ip_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* DeviceInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string devid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          auto str = _internal_mutable_devid();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "PXREAService.DeviceInfo.devid"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // string ip = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_ip();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "PXREAService.DeviceInfo.ip"));
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* DeviceInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:PXREAService.DeviceInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string devid = 1;
+  if (!this->_internal_devid().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_devid().data(), static_cast<int>(this->_internal_devid().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "PXREAService.DeviceInfo.devid");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_devid(), target);
+  }
+
+  // string ip = 2;
+  if (!this->_internal_ip().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_ip().data(), static_cast<int>(this->_internal_ip().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "PXREAService.DeviceInfo.ip");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_ip(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:PXREAService.DeviceInfo)
+  return target;
+}
+
+size_t DeviceInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:PXREAService.DeviceInfo)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string devid = 1;
+  if (!this->_internal_devid().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_devid());
+  }
+
+  // string ip = 2;
+  if (!this->_internal_ip().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_ip());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData DeviceInfo::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    DeviceInfo::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*DeviceInfo::GetClassData() const { return &_class_data_; }
+
+void DeviceInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<DeviceInfo *>(to)->MergeFrom(
+      static_cast<const DeviceInfo &>(from));
+}
+
+
+void DeviceInfo::MergeFrom(const DeviceInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:PXREAService.DeviceInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_devid().empty()) {
+    _internal_set_devid(from._internal_devid());
+  }
+  if (!from._internal_ip().empty()) {
+    _internal_set_ip(from._internal_ip());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void DeviceInfo::CopyFrom(const DeviceInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:PXREAService.DeviceInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeviceInfo::IsInitialized() const {
+  return true;
+}
+
+void DeviceInfo::InternalSwap(DeviceInfo* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &devid_, lhs_arena,
+      &other->devid_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &ip_, lhs_arena,
+      &other->ip_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata DeviceInfo::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
+      file_level_metadata_PXREAService_2eproto[17]);
+}
+
+// ===================================================================
+
 class DeviceStatus::_Internal {
  public:
 };
@@ -5463,18 +5784,12 @@ DeviceStatus::DeviceStatus(const DeviceStatus& from)
     devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_devid(),
       GetArenaForAllocation());
   }
-  ip_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_ip().empty()) {
-    ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_ip(),
-      GetArenaForAllocation());
-  }
   status_ = from.status_;
   // @@protoc_insertion_point(copy_constructor:PXREAService.DeviceStatus)
 }
 
 void DeviceStatus::SharedCtor() {
 devid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-ip_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 status_ = 0;
 }
 
@@ -5488,7 +5803,6 @@ DeviceStatus::~DeviceStatus() {
 inline void DeviceStatus::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   devid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ip_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void DeviceStatus::ArenaDtor(void* object) {
@@ -5508,7 +5822,6 @@ void DeviceStatus::Clear() {
   (void) cached_has_bits;
 
   devid_.ClearToEmpty();
-  ip_.ClearToEmpty();
   status_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -5533,16 +5846,6 @@ const char* DeviceStatus::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           status_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // string ip = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_ip();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "PXREAService.DeviceStatus.ip"));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5592,16 +5895,6 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_status(), target);
   }
 
-  // string ip = 3;
-  if (!this->_internal_ip().empty()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_ip().data(), static_cast<int>(this->_internal_ip().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "PXREAService.DeviceStatus.ip");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_ip(), target);
-  }
-
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5623,13 +5916,6 @@ size_t DeviceStatus::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_devid());
-  }
-
-  // string ip = 3;
-  if (!this->_internal_ip().empty()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_ip());
   }
 
   // int32 status = 2;
@@ -5662,9 +5948,6 @@ void DeviceStatus::MergeFrom(const DeviceStatus& from) {
   if (!from._internal_devid().empty()) {
     _internal_set_devid(from._internal_devid());
   }
-  if (!from._internal_ip().empty()) {
-    _internal_set_ip(from._internal_ip());
-  }
   if (from._internal_status() != 0) {
     _internal_set_status(from._internal_status());
   }
@@ -5692,18 +5975,13 @@ void DeviceStatus::InternalSwap(DeviceStatus* other) {
       &devid_, lhs_arena,
       &other->devid_, rhs_arena
   );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-      &ip_, lhs_arena,
-      &other->ip_, rhs_arena
-  );
   swap(status_, other->status_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DeviceStatus::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[17]);
+      file_level_metadata_PXREAService_2eproto[18]);
 }
 
 // ===================================================================
@@ -5943,7 +6221,7 @@ void DeviceModel::InternalSwap(DeviceModel* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DeviceModel::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[18]);
+      file_level_metadata_PXREAService_2eproto[19]);
 }
 
 // ===================================================================
@@ -6183,7 +6461,7 @@ void CurrentApplication::InternalSwap(CurrentApplication* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CurrentApplication::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[19]);
+      file_level_metadata_PXREAService_2eproto[20]);
 }
 
 // ===================================================================
@@ -6462,7 +6740,7 @@ void ControllerBattery::InternalSwap(ControllerBattery* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ControllerBattery::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[20]);
+      file_level_metadata_PXREAService_2eproto[21]);
 }
 
 // ===================================================================
@@ -6697,7 +6975,7 @@ void DeviceBlob::InternalSwap(DeviceBlob* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DeviceBlob::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[21]);
+      file_level_metadata_PXREAService_2eproto[22]);
 }
 
 // ===================================================================
@@ -6954,7 +7232,7 @@ void DeviceMonitorParameter::InternalSwap(DeviceMonitorParameter* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DeviceMonitorParameter::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[22]);
+      file_level_metadata_PXREAService_2eproto[23]);
 }
 
 // ===================================================================
@@ -7277,7 +7555,7 @@ void VideoFrameInfo::InternalSwap(VideoFrameInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata VideoFrameInfo::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[23]);
+      file_level_metadata_PXREAService_2eproto[24]);
 }
 
 // ===================================================================
@@ -7474,7 +7752,7 @@ void DeviceMonitorSharedMemoryKey::InternalSwap(DeviceMonitorSharedMemoryKey* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata DeviceMonitorSharedMemoryKey::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[24]);
+      file_level_metadata_PXREAService_2eproto[25]);
 }
 
 // ===================================================================
@@ -7817,7 +8095,7 @@ void VideoControlResult::InternalSwap(VideoControlResult* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata VideoControlResult::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[25]);
+      file_level_metadata_PXREAService_2eproto[26]);
 }
 
 // ===================================================================
@@ -8057,7 +8335,7 @@ void DeviceControlParameterJson::InternalSwap(DeviceControlParameterJson* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata DeviceControlParameterJson::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[26]);
+      file_level_metadata_PXREAService_2eproto[27]);
 }
 
 // ===================================================================
@@ -8297,7 +8575,7 @@ void DeviceStateJson::InternalSwap(DeviceStateJson* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata DeviceStateJson::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[27]);
+      file_level_metadata_PXREAService_2eproto[28]);
 }
 
 // ===================================================================
@@ -8520,7 +8798,7 @@ void ScreenMonitorParameter::InternalSwap(ScreenMonitorParameter* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ScreenMonitorParameter::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_PXREAService_2eproto_getter, &descriptor_table_PXREAService_2eproto_once,
-      file_level_metadata_PXREAService_2eproto[28]);
+      file_level_metadata_PXREAService_2eproto[29]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -8576,6 +8854,9 @@ template<> PROTOBUF_NOINLINE ::PXREAService::VrParam* Arena::CreateMaybeMessage<
 }
 template<> PROTOBUF_NOINLINE ::PXREAService::DeviceBattery* Arena::CreateMaybeMessage< ::PXREAService::DeviceBattery >(Arena* arena) {
   return Arena::CreateMessageInternal< ::PXREAService::DeviceBattery >(arena);
+}
+template<> PROTOBUF_NOINLINE ::PXREAService::DeviceInfo* Arena::CreateMaybeMessage< ::PXREAService::DeviceInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::PXREAService::DeviceInfo >(arena);
 }
 template<> PROTOBUF_NOINLINE ::PXREAService::DeviceStatus* Arena::CreateMaybeMessage< ::PXREAService::DeviceStatus >(Arena* arena) {
   return Arena::CreateMessageInternal< ::PXREAService::DeviceStatus >(arena);

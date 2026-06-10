@@ -56,7 +56,7 @@ signals:
     void deliverMsgToVideoLiveSignal(const QString& uid, const TcpMessage& tcpMessage);
     void businessIDConfirmResultSignal(bool result);
     void setUidSignal(QString uid);
-    void replyExistDevice(QString devid);
+    void replyExistDevice(QString devid, QString ip);
     void recvDeviceMessageSignal(QString devid,int type,QByteArray msgbody,QString ip);
 
     void replyFirstMonitorScreenFrame(QString devid, int width, int height);

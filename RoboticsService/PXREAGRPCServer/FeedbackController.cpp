@@ -12,12 +12,15 @@ FeedbackController::FeedbackController(::grpc::ServerWriter<PXREAService::Server
     m_waitTimes.store(0);
     this->moveToThread(&m_thd);
 
-    QObject::connect(this,&FeedbackController::replyDeviceFind,this,[this](const QString& devid){
-        qDebug() <<"reply device find"<<devid<< Qt::endl;
+    QObject::connect(this,&FeedbackController::replyDeviceFind,this,[this](const QString& devid, const QString& ip){
+        qDebug() <<"reply device find"<<devid<<ip<< Qt::endl;
 
         PXREAService::ServerFeedback feedBackMsg;
         feedBackMsg.set_name("deviceFind");
-        feedBackMsg.set_devid(devid.toUtf8().constData());
+        auto info = new PXREAService::DeviceInfo();
+        info->set_devid(devid.toUtf8().constData());
+        info->set_ip(ip.toUtf8().constData());
+        feedBackMsg.set_allocated_devinfo(info);
         m_writer->Write(feedBackMsg);
     });
     QObject::connect(this,&FeedbackController::replyDeviceMissing,this,[this](const QString& devid){
@@ -109,7 +112,6 @@ void FeedbackController::onReplyDeviceMessage(QString devid, int type, QByteArra
         auto sts = new PXREAService::DeviceStatus();
         sts->set_devid(devid.toUtf8().constData());
         sts->set_status(QString::fromUtf8(msgbody).toInt());
-        sts->set_ip(ip.toUtf8().constData());
         feedBackMsg.set_allocated_devstatus(sts);
     }
     break;
@@ -224,5 +226,4 @@ void FeedbackController::onReplyDeviceMessage(QString devid, int type, QByteArra
         qDebug() <<"ignore msg type"<<type<< Qt::endl;
     }
 }
-
 

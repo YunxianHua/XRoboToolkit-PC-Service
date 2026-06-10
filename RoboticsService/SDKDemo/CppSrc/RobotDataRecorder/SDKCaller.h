@@ -122,17 +122,19 @@ inline void OnPXREAClientCallback(void* context,PXREAClientCallbackType type,int
         sdkCaller.disConnect();
         break;
     case PXREADeviceFind:
-        qDebug() <<"device find"<<(const char*)userData<< Qt::endl;
-        sdkCaller.deviceFind((const char*)userData);
+    {
+        auto& info = *((PXREADevFindInfo*)userData);
+        qDebug() <<"device find"<<info.devID<<info.ip<< Qt::endl;
+        sdkCaller.deviceFind(info.devID);
         break;
+    }
     case PXREADeviceMissing:
         qDebug() <<"device missing"<<(const char*)userData<< Qt::endl;
         sdkCaller.deviceMiss((const char*)userData);
         break;
     case PXREADeviceConnect:
     {
-        auto& info = *((PXREADevConnectInfo*)userData);
-        qDebug() <<"device connect"<<info.devID<<info.ip<<status<< Qt::endl;
+        qDebug() <<"device connect"<<(const char*)userData<<status<< Qt::endl;
     }
     break;
     case PXREADeviceStateJson:

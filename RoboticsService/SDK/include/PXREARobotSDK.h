@@ -51,13 +51,13 @@ enum PXREAClientCallbackType
 
 
 
-/// @brief Device connect information
+/// @brief Device find information
 typedef struct {
     /// @brief Device serial number
     char devID[32];
     /// @brief Device IP address
     char ip[64];
-}PXREADevConnectInfo;
+}PXREADevFindInfo;
 
 
 /// @brief Device state in JSON format

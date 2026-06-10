@@ -84,6 +84,9 @@ extern DeviceControlParameterJsonDefaultTypeInternal _DeviceControlParameterJson
 class DeviceID;
 struct DeviceIDDefaultTypeInternal;
 extern DeviceIDDefaultTypeInternal _DeviceID_default_instance_;
+class DeviceInfo;
+struct DeviceInfoDefaultTypeInternal;
+extern DeviceInfoDefaultTypeInternal _DeviceInfo_default_instance_;
 class DeviceModel;
 struct DeviceModelDefaultTypeInternal;
 extern DeviceModelDefaultTypeInternal _DeviceModel_default_instance_;
@@ -785,7 +788,7 @@ class VideoFrameInfo final : public ::google::protobuf::Message
     return reinterpret_cast<const VideoFrameInfo*>(
         &_VideoFrameInfo_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 23;
+  static constexpr int kIndexInFileMessages = 24;
   friend void swap(VideoFrameInfo& a, VideoFrameInfo& b) { a.Swap(&b); }
   inline void Swap(VideoFrameInfo* other) {
     if (other == this) return;
@@ -1022,7 +1025,7 @@ class VideoControlResult final : public ::google::protobuf::Message
     return reinterpret_cast<const VideoControlResult*>(
         &_VideoControlResult_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 25;
+  static constexpr int kIndexInFileMessages = 26;
   friend void swap(VideoControlResult& a, VideoControlResult& b) { a.Swap(&b); }
   inline void Swap(VideoControlResult* other) {
     if (other == this) return;
@@ -1802,7 +1805,7 @@ class ScreenMonitorParameter final : public ::google::protobuf::Message
     return reinterpret_cast<const ScreenMonitorParameter*>(
         &_ScreenMonitorParameter_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 28;
+  static constexpr int kIndexInFileMessages = 29;
   friend void swap(ScreenMonitorParameter& a, ScreenMonitorParameter& b) { a.Swap(&b); }
   inline void Swap(ScreenMonitorParameter* other) {
     if (other == this) return;
@@ -2552,7 +2555,7 @@ class DeviceStatus final : public ::google::protobuf::Message
     return reinterpret_cast<const DeviceStatus*>(
         &_DeviceStatus_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 17;
+  static constexpr int kIndexInFileMessages = 18;
   friend void swap(DeviceStatus& a, DeviceStatus& b) { a.Swap(&b); }
   inline void Swap(DeviceStatus* other) {
     if (other == this) return;
@@ -2622,7 +2625,6 @@ class DeviceStatus final : public ::google::protobuf::Message
   // accessors -------------------------------------------------------
   enum : int {
     kDevidFieldNumber = 1,
-    kIpFieldNumber = 3,
     kStatusFieldNumber = 2,
   };
   // string devid = 1;
@@ -2641,22 +2643,6 @@ class DeviceStatus final : public ::google::protobuf::Message
   std::string* _internal_mutable_devid();
 
   public:
-  // string ip = 3;
-  void clear_ip() ;
-  const std::string& ip() const;
-  template <typename Arg_ = const std::string&, typename... Args_>
-  void set_ip(Arg_&& arg, Args_... args);
-  std::string* mutable_ip();
-  PROTOBUF_NODISCARD std::string* release_ip();
-  void set_allocated_ip(std::string* value);
-
-  private:
-  const std::string& _internal_ip() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ip(
-      const std::string& value);
-  std::string* _internal_mutable_ip();
-
-  public:
   // int32 status = 2;
   void clear_status() ;
   ::int32_t status() const;
@@ -2672,8 +2658,8 @@ class DeviceStatus final : public ::google::protobuf::Message
   class _Internal;
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      2, 3, 0,
-      41, 2>
+      1, 2, 0,
+      39, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -2694,7 +2680,6 @@ class DeviceStatus final : public ::google::protobuf::Message
                           ::google::protobuf::Arena* arena, const Impl_& from,
                           const DeviceStatus& from_msg);
     ::google::protobuf::internal::ArenaStringPtr devid_;
-    ::google::protobuf::internal::ArenaStringPtr ip_;
     ::int32_t status_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
@@ -2759,7 +2744,7 @@ class DeviceStateJson final : public ::google::protobuf::Message
     return reinterpret_cast<const DeviceStateJson*>(
         &_DeviceStateJson_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 27;
+  static constexpr int kIndexInFileMessages = 28;
   friend void swap(DeviceStateJson& a, DeviceStateJson& b) { a.Swap(&b); }
   inline void Swap(DeviceStateJson* other) {
     if (other == this) return;
@@ -2954,7 +2939,7 @@ class DeviceMonitorSharedMemoryKey final : public ::google::protobuf::Message
     return reinterpret_cast<const DeviceMonitorSharedMemoryKey*>(
         &_DeviceMonitorSharedMemoryKey_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 24;
+  static constexpr int kIndexInFileMessages = 25;
   friend void swap(DeviceMonitorSharedMemoryKey& a, DeviceMonitorSharedMemoryKey& b) { a.Swap(&b); }
   inline void Swap(DeviceMonitorSharedMemoryKey* other) {
     if (other == this) return;
@@ -3131,7 +3116,7 @@ class DeviceMonitorParameter final : public ::google::protobuf::Message
     return reinterpret_cast<const DeviceMonitorParameter*>(
         &_DeviceMonitorParameter_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 22;
+  static constexpr int kIndexInFileMessages = 23;
   friend void swap(DeviceMonitorParameter& a, DeviceMonitorParameter& b) { a.Swap(&b); }
   inline void Swap(DeviceMonitorParameter* other) {
     if (other == this) return;
@@ -3332,7 +3317,7 @@ class DeviceModel final : public ::google::protobuf::Message
     return reinterpret_cast<const DeviceModel*>(
         &_DeviceModel_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 18;
+  static constexpr int kIndexInFileMessages = 19;
   friend void swap(DeviceModel& a, DeviceModel& b) { a.Swap(&b); }
   inline void Swap(DeviceModel* other) {
     if (other == this) return;
@@ -3464,6 +3449,201 @@ class DeviceModel final : public ::google::protobuf::Message
                           const DeviceModel& from_msg);
     ::google::protobuf::internal::ArenaStringPtr devid_;
     ::google::protobuf::internal::ArenaStringPtr model_;
+    mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    PROTOBUF_TSAN_DECLARE_MEMBER
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_PXREAService_2eproto;
+};
+// -------------------------------------------------------------------
+
+class DeviceInfo final : public ::google::protobuf::Message
+/* @@protoc_insertion_point(class_definition:PXREAService.DeviceInfo) */ {
+ public:
+  inline DeviceInfo() : DeviceInfo(nullptr) {}
+  ~DeviceInfo() override;
+  template <typename = void>
+  explicit PROTOBUF_CONSTEXPR DeviceInfo(
+      ::google::protobuf::internal::ConstantInitialized);
+
+  inline DeviceInfo(const DeviceInfo& from) : DeviceInfo(nullptr, from) {}
+  inline DeviceInfo(DeviceInfo&& from) noexcept
+      : DeviceInfo(nullptr, std::move(from)) {}
+  inline DeviceInfo& operator=(const DeviceInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeviceInfo& operator=(DeviceInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetArena() == from.GetArena()
+#ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetArena() != nullptr
+#endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.unknown_fields<::google::protobuf::UnknownFieldSet>(::google::protobuf::UnknownFieldSet::default_instance);
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields()
+      ABSL_ATTRIBUTE_LIFETIME_BOUND {
+    return _internal_metadata_.mutable_unknown_fields<::google::protobuf::UnknownFieldSet>();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::google::protobuf::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::google::protobuf::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeviceInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeviceInfo* internal_default_instance() {
+    return reinterpret_cast<const DeviceInfo*>(
+        &_DeviceInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages = 17;
+  friend void swap(DeviceInfo& a, DeviceInfo& b) { a.Swap(&b); }
+  inline void Swap(DeviceInfo* other) {
+    if (other == this) return;
+#ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() != nullptr && GetArena() == other->GetArena()) {
+#else   // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetArena() == other->GetArena()) {
+#endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::google::protobuf::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeviceInfo* other) {
+    if (other == this) return;
+    ABSL_DCHECK(GetArena() == other->GetArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  DeviceInfo* New(::google::protobuf::Arena* arena = nullptr) const final {
+    return ::google::protobuf::Message::DefaultConstruct<DeviceInfo>(arena);
+  }
+  using ::google::protobuf::Message::CopyFrom;
+  void CopyFrom(const DeviceInfo& from);
+  using ::google::protobuf::Message::MergeFrom;
+  void MergeFrom(const DeviceInfo& from) { DeviceInfo::MergeImpl(*this, from); }
+
+  private:
+  static void MergeImpl(
+      ::google::protobuf::MessageLite& to_msg,
+      const ::google::protobuf::MessageLite& from_msg);
+
+  public:
+  bool IsInitialized() const {
+    return true;
+  }
+  ABSL_ATTRIBUTE_REINITIALIZES void Clear() final;
+  ::size_t ByteSizeLong() const final;
+  ::uint8_t* _InternalSerialize(
+      ::uint8_t* target,
+      ::google::protobuf::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::google::protobuf::Arena* arena);
+  void SharedDtor();
+  void InternalSwap(DeviceInfo* other);
+ private:
+  friend class ::google::protobuf::internal::AnyMetadata;
+  static ::absl::string_view FullMessageName() { return "PXREAService.DeviceInfo"; }
+
+ protected:
+  explicit DeviceInfo(::google::protobuf::Arena* arena);
+  DeviceInfo(::google::protobuf::Arena* arena, const DeviceInfo& from);
+  DeviceInfo(::google::protobuf::Arena* arena, DeviceInfo&& from) noexcept
+      : DeviceInfo(arena) {
+    *this = ::std::move(from);
+  }
+  const ::google::protobuf::Message::ClassData* GetClassData() const final;
+
+ public:
+  ::google::protobuf::Metadata GetMetadata() const;
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+  enum : int {
+    kDevidFieldNumber = 1,
+    kIpFieldNumber = 2,
+  };
+  // string devid = 1;
+  void clear_devid() ;
+  const std::string& devid() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_devid(Arg_&& arg, Args_... args);
+  std::string* mutable_devid();
+  PROTOBUF_NODISCARD std::string* release_devid();
+  void set_allocated_devid(std::string* value);
+
+  private:
+  const std::string& _internal_devid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_devid(
+      const std::string& value);
+  std::string* _internal_mutable_devid();
+
+  public:
+  // string ip = 2;
+  void clear_ip() ;
+  const std::string& ip() const;
+  template <typename Arg_ = const std::string&, typename... Args_>
+  void set_ip(Arg_&& arg, Args_... args);
+  std::string* mutable_ip();
+  PROTOBUF_NODISCARD std::string* release_ip();
+  void set_allocated_ip(std::string* value);
+
+  private:
+  const std::string& _internal_ip() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ip(
+      const std::string& value);
+  std::string* _internal_mutable_ip();
+
+  public:
+  // @@protoc_insertion_point(class_scope:PXREAService.DeviceInfo)
+ private:
+  class _Internal;
+  friend class ::google::protobuf::internal::TcParser;
+  static const ::google::protobuf::internal::TcParseTable<
+      1, 2, 0,
+      39, 2>
+      _table_;
+
+  static constexpr const void* _raw_default_instance_ =
+      &_DeviceInfo_default_instance_;
+
+  friend class ::google::protobuf::MessageLite;
+  friend class ::google::protobuf::Arena;
+  template <typename T>
+  friend class ::google::protobuf::Arena::InternalHelper;
+  using InternalArenaConstructable_ = void;
+  using DestructorSkippable_ = void;
+  struct Impl_ {
+    inline explicit constexpr Impl_(
+        ::google::protobuf::internal::ConstantInitialized) noexcept;
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena);
+    inline explicit Impl_(::google::protobuf::internal::InternalVisibility visibility,
+                          ::google::protobuf::Arena* arena, const Impl_& from,
+                          const DeviceInfo& from_msg);
+    ::google::protobuf::internal::ArenaStringPtr devid_;
+    ::google::protobuf::internal::ArenaStringPtr ip_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     PROTOBUF_TSAN_DECLARE_MEMBER
   };
@@ -3704,7 +3884,7 @@ class DeviceControlParameterJson final : public ::google::protobuf::Message
     return reinterpret_cast<const DeviceControlParameterJson*>(
         &_DeviceControlParameterJson_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 26;
+  static constexpr int kIndexInFileMessages = 27;
   friend void swap(DeviceControlParameterJson& a, DeviceControlParameterJson& b) { a.Swap(&b); }
   inline void Swap(DeviceControlParameterJson* other) {
     if (other == this) return;
@@ -4094,7 +4274,7 @@ class DeviceBlob final : public ::google::protobuf::Message
     return reinterpret_cast<const DeviceBlob*>(
         &_DeviceBlob_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 21;
+  static constexpr int kIndexInFileMessages = 22;
   friend void swap(DeviceBlob& a, DeviceBlob& b) { a.Swap(&b); }
   inline void Swap(DeviceBlob* other) {
     if (other == this) return;
@@ -4673,7 +4853,7 @@ class CurrentApplication final : public ::google::protobuf::Message
     return reinterpret_cast<const CurrentApplication*>(
         &_CurrentApplication_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 19;
+  static constexpr int kIndexInFileMessages = 20;
   friend void swap(CurrentApplication& a, CurrentApplication& b) { a.Swap(&b); }
   inline void Swap(CurrentApplication* other) {
     if (other == this) return;
@@ -5270,7 +5450,7 @@ class ControllerBattery final : public ::google::protobuf::Message
     return reinterpret_cast<const ControllerBattery*>(
         &_ControllerBattery_default_instance_);
   }
-  static constexpr int kIndexInFileMessages = 20;
+  static constexpr int kIndexInFileMessages = 21;
   friend void swap(ControllerBattery& a, ControllerBattery& b) { a.Swap(&b); }
   inline void Swap(ControllerBattery* other) {
     if (other == this) return;
@@ -5689,6 +5869,7 @@ class ServerFeedback final : public ::google::protobuf::Message
     kVideocontrolresult = 13,
     kDevicealiasinfo = 14,
     kDevicestatejson = 15,
+    kDevinfo = 16,
     FEEDBACKARGS_NOT_SET = 0,
   };
   static inline const ServerFeedback* internal_default_instance() {
@@ -5779,6 +5960,7 @@ class ServerFeedback final : public ::google::protobuf::Message
     kVideocontrolresultFieldNumber = 13,
     kDevicealiasinfoFieldNumber = 14,
     kDevicestatejsonFieldNumber = 15,
+    kDevinfoFieldNumber = 16,
   };
   // string name = 1;
   void clear_name() ;
@@ -6060,6 +6242,25 @@ class ServerFeedback final : public ::google::protobuf::Message
   ::PXREAService::DeviceStateJson* _internal_mutable_devicestatejson();
 
   public:
+  // .PXREAService.DeviceInfo devinfo = 16;
+  bool has_devinfo() const;
+  private:
+  bool _internal_has_devinfo() const;
+
+  public:
+  void clear_devinfo() ;
+  const ::PXREAService::DeviceInfo& devinfo() const;
+  PROTOBUF_NODISCARD ::PXREAService::DeviceInfo* release_devinfo();
+  ::PXREAService::DeviceInfo* mutable_devinfo();
+  void set_allocated_devinfo(::PXREAService::DeviceInfo* value);
+  void unsafe_arena_set_allocated_devinfo(::PXREAService::DeviceInfo* value);
+  ::PXREAService::DeviceInfo* unsafe_arena_release_devinfo();
+
+  private:
+  const ::PXREAService::DeviceInfo& _internal_devinfo() const;
+  ::PXREAService::DeviceInfo* _internal_mutable_devinfo();
+
+  public:
   void clear_FeedbackArgs();
   FeedbackArgsCase FeedbackArgs_case() const;
   // @@protoc_insertion_point(class_scope:PXREAService.ServerFeedback)
@@ -6079,12 +6280,13 @@ class ServerFeedback final : public ::google::protobuf::Message
   void set_has_videocontrolresult();
   void set_has_devicealiasinfo();
   void set_has_devicestatejson();
+  void set_has_devinfo();
   inline bool has_FeedbackArgs() const;
   inline void clear_has_FeedbackArgs();
   friend class ::google::protobuf::internal::TcParser;
   static const ::google::protobuf::internal::TcParseTable<
-      0, 15, 13,
-      53, 2>
+      0, 16, 14,
+      61, 2>
       _table_;
 
   static constexpr const void* _raw_default_instance_ =
@@ -6122,6 +6324,7 @@ class ServerFeedback final : public ::google::protobuf::Message
       ::PXREAService::VideoControlResult* videocontrolresult_;
       ::PXREAService::DeviceAliasInfo* devicealiasinfo_;
       ::PXREAService::DeviceStateJson* devicestatejson_;
+      ::PXREAService::DeviceInfo* devinfo_;
     } FeedbackArgs_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::uint32_t _oneof_case_[1];
@@ -8469,6 +8672,85 @@ inline ::PXREAService::DeviceStateJson* ServerFeedback::mutable_devicestatejson(
   return _msg;
 }
 
+// .PXREAService.DeviceInfo devinfo = 16;
+inline bool ServerFeedback::has_devinfo() const {
+  return FeedbackArgs_case() == kDevinfo;
+}
+inline bool ServerFeedback::_internal_has_devinfo() const {
+  return FeedbackArgs_case() == kDevinfo;
+}
+inline void ServerFeedback::set_has_devinfo() {
+  _impl_._oneof_case_[0] = kDevinfo;
+}
+inline void ServerFeedback::clear_devinfo() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  if (FeedbackArgs_case() == kDevinfo) {
+    if (GetArena() == nullptr) {
+      delete _impl_.FeedbackArgs_.devinfo_;
+    } else if (::google::protobuf::internal::DebugHardenClearOneofMessageOnArena()) {
+      ::google::protobuf::internal::MaybePoisonAfterClear(_impl_.FeedbackArgs_.devinfo_);
+    }
+    clear_has_FeedbackArgs();
+  }
+}
+inline ::PXREAService::DeviceInfo* ServerFeedback::release_devinfo() {
+  // @@protoc_insertion_point(field_release:PXREAService.ServerFeedback.devinfo)
+  if (FeedbackArgs_case() == kDevinfo) {
+    clear_has_FeedbackArgs();
+    auto* temp = _impl_.FeedbackArgs_.devinfo_;
+    if (GetArena() != nullptr) {
+      temp = ::google::protobuf::internal::DuplicateIfNonNull(temp);
+    }
+    _impl_.FeedbackArgs_.devinfo_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::PXREAService::DeviceInfo& ServerFeedback::_internal_devinfo() const {
+  return FeedbackArgs_case() == kDevinfo ? *_impl_.FeedbackArgs_.devinfo_ : reinterpret_cast<::PXREAService::DeviceInfo&>(::PXREAService::_DeviceInfo_default_instance_);
+}
+inline const ::PXREAService::DeviceInfo& ServerFeedback::devinfo() const ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PXREAService.ServerFeedback.devinfo)
+  return _internal_devinfo();
+}
+inline ::PXREAService::DeviceInfo* ServerFeedback::unsafe_arena_release_devinfo() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:PXREAService.ServerFeedback.devinfo)
+  if (FeedbackArgs_case() == kDevinfo) {
+    clear_has_FeedbackArgs();
+    auto* temp = _impl_.FeedbackArgs_.devinfo_;
+    _impl_.FeedbackArgs_.devinfo_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ServerFeedback::unsafe_arena_set_allocated_devinfo(::PXREAService::DeviceInfo* value) {
+  // We rely on the oneof clear method to free the earlier contents
+  // of this oneof. We can directly use the pointer we're given to
+  // set the new value.
+  clear_FeedbackArgs();
+  if (value) {
+    set_has_devinfo();
+    _impl_.FeedbackArgs_.devinfo_ = value;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PXREAService.ServerFeedback.devinfo)
+}
+inline ::PXREAService::DeviceInfo* ServerFeedback::_internal_mutable_devinfo() {
+  if (FeedbackArgs_case() != kDevinfo) {
+    clear_FeedbackArgs();
+    set_has_devinfo();
+    _impl_.FeedbackArgs_.devinfo_ =
+        ::google::protobuf::Message::DefaultConstruct<::PXREAService::DeviceInfo>(GetArena());
+  }
+  return _impl_.FeedbackArgs_.devinfo_;
+}
+inline ::PXREAService::DeviceInfo* ServerFeedback::mutable_devinfo() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  ::PXREAService::DeviceInfo* _msg = _internal_mutable_devinfo();
+  // @@protoc_insertion_point(field_mutable:PXREAService.ServerFeedback.devinfo)
+  return _msg;
+}
+
 inline bool ServerFeedback::has_FeedbackArgs() const {
   return FeedbackArgs_case() != FEEDBACKARGS_NOT_SET;
 }
@@ -8626,6 +8908,110 @@ inline void DeviceBattery::_internal_set_battery(::uint32_t value) {
 
 // -------------------------------------------------------------------
 
+// DeviceInfo
+
+// string devid = 1;
+inline void DeviceInfo::clear_devid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.devid_.ClearToEmpty();
+}
+inline const std::string& DeviceInfo::devid() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PXREAService.DeviceInfo.devid)
+  return _internal_devid();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void DeviceInfo::set_devid(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.devid_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:PXREAService.DeviceInfo.devid)
+}
+inline std::string* DeviceInfo::mutable_devid() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_devid();
+  // @@protoc_insertion_point(field_mutable:PXREAService.DeviceInfo.devid)
+  return _s;
+}
+inline const std::string& DeviceInfo::_internal_devid() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.devid_.Get();
+}
+inline void DeviceInfo::_internal_set_devid(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.devid_.Set(value, GetArena());
+}
+inline std::string* DeviceInfo::_internal_mutable_devid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.devid_.Mutable( GetArena());
+}
+inline std::string* DeviceInfo::release_devid() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:PXREAService.DeviceInfo.devid)
+  return _impl_.devid_.Release();
+}
+inline void DeviceInfo::set_allocated_devid(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.devid_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.devid_.IsDefault()) {
+          _impl_.devid_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:PXREAService.DeviceInfo.devid)
+}
+
+// string ip = 2;
+inline void DeviceInfo::clear_ip() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ip_.ClearToEmpty();
+}
+inline const std::string& DeviceInfo::ip() const
+    ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  // @@protoc_insertion_point(field_get:PXREAService.DeviceInfo.ip)
+  return _internal_ip();
+}
+template <typename Arg_, typename... Args_>
+inline PROTOBUF_ALWAYS_INLINE void DeviceInfo::set_ip(Arg_&& arg,
+                                                     Args_... args) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ip_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
+  // @@protoc_insertion_point(field_set:PXREAService.DeviceInfo.ip)
+}
+inline std::string* DeviceInfo::mutable_ip() ABSL_ATTRIBUTE_LIFETIME_BOUND {
+  std::string* _s = _internal_mutable_ip();
+  // @@protoc_insertion_point(field_mutable:PXREAService.DeviceInfo.ip)
+  return _s;
+}
+inline const std::string& DeviceInfo::_internal_ip() const {
+  ::google::protobuf::internal::TSanRead(&_impl_);
+  return _impl_.ip_.Get();
+}
+inline void DeviceInfo::_internal_set_ip(const std::string& value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ip_.Set(value, GetArena());
+}
+inline std::string* DeviceInfo::_internal_mutable_ip() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  return _impl_.ip_.Mutable( GetArena());
+}
+inline std::string* DeviceInfo::release_ip() {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  // @@protoc_insertion_point(field_release:PXREAService.DeviceInfo.ip)
+  return _impl_.ip_.Release();
+}
+inline void DeviceInfo::set_allocated_ip(std::string* value) {
+  ::google::protobuf::internal::TSanWrite(&_impl_);
+  _impl_.ip_.SetAllocated(value, GetArena());
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+        if (_impl_.ip_.IsDefault()) {
+          _impl_.ip_.Set("", GetArena());
+        }
+  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:PXREAService.DeviceInfo.ip)
+}
+
+// -------------------------------------------------------------------
+
 // DeviceStatus
 
 // string devid = 1;
@@ -8698,56 +9084,6 @@ inline ::int32_t DeviceStatus::_internal_status() const {
 inline void DeviceStatus::_internal_set_status(::int32_t value) {
   ::google::protobuf::internal::TSanWrite(&_impl_);
   _impl_.status_ = value;
-}
-
-// string ip = 3;
-inline void DeviceStatus::clear_ip() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.ip_.ClearToEmpty();
-}
-inline const std::string& DeviceStatus::ip() const
-    ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  // @@protoc_insertion_point(field_get:PXREAService.DeviceStatus.ip)
-  return _internal_ip();
-}
-template <typename Arg_, typename... Args_>
-inline PROTOBUF_ALWAYS_INLINE void DeviceStatus::set_ip(Arg_&& arg,
-                                                     Args_... args) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.ip_.Set(static_cast<Arg_&&>(arg), args..., GetArena());
-  // @@protoc_insertion_point(field_set:PXREAService.DeviceStatus.ip)
-}
-inline std::string* DeviceStatus::mutable_ip() ABSL_ATTRIBUTE_LIFETIME_BOUND {
-  std::string* _s = _internal_mutable_ip();
-  // @@protoc_insertion_point(field_mutable:PXREAService.DeviceStatus.ip)
-  return _s;
-}
-inline const std::string& DeviceStatus::_internal_ip() const {
-  ::google::protobuf::internal::TSanRead(&_impl_);
-  return _impl_.ip_.Get();
-}
-inline void DeviceStatus::_internal_set_ip(const std::string& value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.ip_.Set(value, GetArena());
-}
-inline std::string* DeviceStatus::_internal_mutable_ip() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  return _impl_.ip_.Mutable( GetArena());
-}
-inline std::string* DeviceStatus::release_ip() {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  // @@protoc_insertion_point(field_release:PXREAService.DeviceStatus.ip)
-  return _impl_.ip_.Release();
-}
-inline void DeviceStatus::set_allocated_ip(std::string* value) {
-  ::google::protobuf::internal::TSanWrite(&_impl_);
-  _impl_.ip_.SetAllocated(value, GetArena());
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-        if (_impl_.ip_.IsDefault()) {
-          _impl_.ip_.Set("", GetArena());
-        }
-  #endif  // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  // @@protoc_insertion_point(field_set_allocated:PXREAService.DeviceStatus.ip)
 }
 
 // -------------------------------------------------------------------

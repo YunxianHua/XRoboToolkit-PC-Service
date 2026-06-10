@@ -26,7 +26,7 @@ public:
 signals:
      void startFrameCapture(unsigned width, unsigned height,unsigned fps);
      void stopFrameCapture();
-     void replyDeviceFind(QString devid);
+     void replyDeviceFind(QString devid, QString ip);
      void replyDeviceMissing(QString devid);
      void replyDeviceMessage(QString devid, int type, QByteArray msgbody, QString ip);
      void replyFirstMonitorScreenFrame(QString devid, int width, int height);

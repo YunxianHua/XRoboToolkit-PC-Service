@@ -9,13 +9,40 @@
 #include "PXREARobotSDK.h"
 #include "inipp.h"
 #include "nlohmann/json.hpp"
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <iostream>
 #include <string>
 #include <unordered_map>
+
+static std::string FormatLogMessage(const char* str)
+{
+    const auto now = std::chrono::system_clock::now();
+    const auto currentTime = std::chrono::system_clock::to_time_t(now);
+    const auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(
+        now.time_since_epoch()) % 1000;
+
+    std::tm localTime{};
+#ifdef _WIN32
+    localtime_s(&localTime, &currentTime);
+#else
+    localtime_r(&currentTime, &localTime);
+#endif
+
+    std::ostringstream stream;
+    stream << std::put_time(&localTime, "%Y-%m-%d %H:%M:%S") << "."
+           << std::setw(3) << std::setfill('0') << milliseconds.count()
+           << std::setfill(' ') << " [ INFO] [PXREARobotSDK] " << str;
+    return stream.str();
+}
+
 #ifdef _WIN32
 #include <Windows.h>
 static void OutputDebug(const char* str)
 {
-    OutputDebugStringA(str);
+    const auto log = FormatLogMessage(str);
+    OutputDebugStringA((log + "\n").c_str());
 }
 
 static unsigned GetCurrentPid()
@@ -26,9 +53,6 @@ static unsigned GetCurrentPid()
 #endif
 
 #if defined(LINUX_x86) || defined(LINUX_aarch64)
-#include <chrono>
-#include <iomanip>
-#include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <thread>
@@ -38,13 +62,7 @@ static unsigned GetCurrentPid()
 
 static void OutputDebug(const char* str)
 {
-    const auto now = std::chrono::system_clock::now().time_since_epoch();
-    const auto seconds = std::chrono::duration_cast<std::chrono::seconds>(now);
-    const auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(now - seconds);
-
-    std::cout << "[INFO] [" << seconds.count() << "."
-              << std::setw(9) << std::setfill('0') << nanoseconds.count()
-              << std::setfill(' ') << "] [PXREARobotSDK]: " << str << std::endl;
+    std::cout << FormatLogMessage(str) << std::endl;
 }
 
 static unsigned GetCurrentPid()
@@ -130,8 +148,11 @@ public:
                 {
                     if(g_mask & PXREADeviceFind)
                     {
-                        gOnPXREAClientCallback(g_context,PXREADeviceFind,0,const_cast<char*>(feedBack.devid().c_str()));
-                        OutputDebug((StreamHelper()<<"device find "<<feedBack.devid()).str().c_str());
+                        PXREADevFindInfo info{};
+                        strcpy_s(info.devID,32,feedBack.devinfo().devid().c_str());
+                        strcpy_s(info.ip,64,feedBack.devinfo().ip().c_str());
+                        gOnPXREAClientCallback(g_context,PXREADeviceFind,0,&info);
+                        OutputDebug((StreamHelper()<<"device find "<<info.devID<<" "<<info.ip).str().c_str());
                     }
                     else
                     {
@@ -154,11 +175,8 @@ public:
                 {
                     if(g_mask & PXREADeviceConnect)
                     {
-                        PXREADevConnectInfo info{};
-                        strcpy_s(info.devID,32,feedBack.devstatus().devid().c_str());
-                        strcpy_s(info.ip,64,feedBack.devstatus().ip().c_str());
-                        gOnPXREAClientCallback(g_context,PXREADeviceConnect,feedBack.devstatus().status(),&info);
-                        OutputDebug((StreamHelper()<<"device connect "<<info.devID<<" "<<info.ip<<" "<<feedBack.devstatus().status()).str().c_str());
+                        gOnPXREAClientCallback(g_context,PXREADeviceConnect,feedBack.devstatus().status(),const_cast<char*>(feedBack.devstatus().devid().c_str()));
+                        OutputDebug((StreamHelper()<<"device connect "<<feedBack.devstatus().devid()<<" "<<feedBack.devstatus().status()).str().c_str());
                     }
                     else
                     {

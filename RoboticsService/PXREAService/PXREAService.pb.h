@@ -47,7 +47,7 @@ struct TableStruct_PXREAService_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[29]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[30]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -88,6 +88,9 @@ extern DeviceControlParameterJsonDefaultTypeInternal _DeviceControlParameterJson
 class DeviceID;
 struct DeviceIDDefaultTypeInternal;
 extern DeviceIDDefaultTypeInternal _DeviceID_default_instance_;
+class DeviceInfo;
+struct DeviceInfoDefaultTypeInternal;
+extern DeviceInfoDefaultTypeInternal _DeviceInfo_default_instance_;
 class DeviceModel;
 struct DeviceModelDefaultTypeInternal;
 extern DeviceModelDefaultTypeInternal _DeviceModel_default_instance_;
@@ -155,6 +158,7 @@ template<> ::PXREAService::DeviceBlob* Arena::CreateMaybeMessage<::PXREAService:
 template<> ::PXREAService::DeviceBytesInfo* Arena::CreateMaybeMessage<::PXREAService::DeviceBytesInfo>(Arena*);
 template<> ::PXREAService::DeviceControlParameterJson* Arena::CreateMaybeMessage<::PXREAService::DeviceControlParameterJson>(Arena*);
 template<> ::PXREAService::DeviceID* Arena::CreateMaybeMessage<::PXREAService::DeviceID>(Arena*);
+template<> ::PXREAService::DeviceInfo* Arena::CreateMaybeMessage<::PXREAService::DeviceInfo>(Arena*);
 template<> ::PXREAService::DeviceModel* Arena::CreateMaybeMessage<::PXREAService::DeviceModel>(Arena*);
 template<> ::PXREAService::DeviceMonitorParameter* Arena::CreateMaybeMessage<::PXREAService::DeviceMonitorParameter>(Arena*);
 template<> ::PXREAService::DeviceMonitorSharedMemoryKey* Arena::CreateMaybeMessage<::PXREAService::DeviceMonitorSharedMemoryKey>(Arena*);
@@ -2465,6 +2469,7 @@ class ServerFeedback final :
     kVideocontrolresult = 13,
     kDevicealiasinfo = 14,
     kDevicestatejson = 15,
+    kDevinfo = 16,
     FEEDBACKARGS_NOT_SET = 0,
   };
 
@@ -2559,6 +2564,7 @@ class ServerFeedback final :
     kVideocontrolresultFieldNumber = 13,
     kDevicealiasinfoFieldNumber = 14,
     kDevicestatejsonFieldNumber = 15,
+    kDevinfoFieldNumber = 16,
   };
   // string name = 1;
   void clear_name();
@@ -2826,6 +2832,24 @@ class ServerFeedback final :
       ::PXREAService::DeviceStateJson* devicestatejson);
   ::PXREAService::DeviceStateJson* unsafe_arena_release_devicestatejson();
 
+  // .PXREAService.DeviceInfo devinfo = 16;
+  bool has_devinfo() const;
+  private:
+  bool _internal_has_devinfo() const;
+  public:
+  void clear_devinfo();
+  const ::PXREAService::DeviceInfo& devinfo() const;
+  PROTOBUF_MUST_USE_RESULT ::PXREAService::DeviceInfo* release_devinfo();
+  ::PXREAService::DeviceInfo* mutable_devinfo();
+  void set_allocated_devinfo(::PXREAService::DeviceInfo* devinfo);
+  private:
+  const ::PXREAService::DeviceInfo& _internal_devinfo() const;
+  ::PXREAService::DeviceInfo* _internal_mutable_devinfo();
+  public:
+  void unsafe_arena_set_allocated_devinfo(
+      ::PXREAService::DeviceInfo* devinfo);
+  ::PXREAService::DeviceInfo* unsafe_arena_release_devinfo();
+
   void clear_FeedbackArgs();
   FeedbackArgsCase FeedbackArgs_case() const;
   // @@protoc_insertion_point(class_scope:PXREAService.ServerFeedback)
@@ -2845,6 +2869,7 @@ class ServerFeedback final :
   void set_has_videocontrolresult();
   void set_has_devicealiasinfo();
   void set_has_devicestatejson();
+  void set_has_devinfo();
 
   inline bool has_FeedbackArgs() const;
   inline void clear_has_FeedbackArgs();
@@ -2870,6 +2895,7 @@ class ServerFeedback final :
     ::PXREAService::VideoControlResult* videocontrolresult_;
     ::PXREAService::DeviceAliasInfo* devicealiasinfo_;
     ::PXREAService::DeviceStateJson* devicestatejson_;
+    ::PXREAService::DeviceInfo* devinfo_;
   } FeedbackArgs_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   ::PROTOBUF_NAMESPACE_ID::uint32 _oneof_case_[1];
@@ -3202,6 +3228,170 @@ class DeviceBattery final :
 };
 // -------------------------------------------------------------------
 
+class DeviceInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:PXREAService.DeviceInfo) */ {
+ public:
+  inline DeviceInfo() : DeviceInfo(nullptr) {}
+  ~DeviceInfo() override;
+  explicit constexpr DeviceInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  DeviceInfo(const DeviceInfo& from);
+  DeviceInfo(DeviceInfo&& from) noexcept
+    : DeviceInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline DeviceInfo& operator=(const DeviceInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline DeviceInfo& operator=(DeviceInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const DeviceInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const DeviceInfo* internal_default_instance() {
+    return reinterpret_cast<const DeviceInfo*>(
+               &_DeviceInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(DeviceInfo& a, DeviceInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(DeviceInfo* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(DeviceInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DeviceInfo* New() const final {
+    return new DeviceInfo();
+  }
+
+  DeviceInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<DeviceInfo>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const DeviceInfo& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const DeviceInfo& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(DeviceInfo* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "PXREAService.DeviceInfo";
+  }
+  protected:
+  explicit DeviceInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kDevidFieldNumber = 1,
+    kIpFieldNumber = 2,
+  };
+  // string devid = 1;
+  void clear_devid();
+  const std::string& devid() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_devid(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_devid();
+  PROTOBUF_MUST_USE_RESULT std::string* release_devid();
+  void set_allocated_devid(std::string* devid);
+  private:
+  const std::string& _internal_devid() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_devid(const std::string& value);
+  std::string* _internal_mutable_devid();
+  public:
+
+  // string ip = 2;
+  void clear_ip();
+  const std::string& ip() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_ip(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_ip();
+  PROTOBUF_MUST_USE_RESULT std::string* release_ip();
+  void set_allocated_ip(std::string* ip);
+  private:
+  const std::string& _internal_ip() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ip(const std::string& value);
+  std::string* _internal_mutable_ip();
+  public:
+
+  // @@protoc_insertion_point(class_scope:PXREAService.DeviceInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr devid_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ip_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_PXREAService_2eproto;
+};
+// -------------------------------------------------------------------
+
 class DeviceStatus final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:PXREAService.DeviceStatus) */ {
  public:
@@ -3250,7 +3440,7 @@ class DeviceStatus final :
                &_DeviceStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(DeviceStatus& a, DeviceStatus& b) {
     a.Swap(&b);
@@ -3322,7 +3512,6 @@ class DeviceStatus final :
 
   enum : int {
     kDevidFieldNumber = 1,
-    kIpFieldNumber = 3,
     kStatusFieldNumber = 2,
   };
   // string devid = 1;
@@ -3337,20 +3526,6 @@ class DeviceStatus final :
   const std::string& _internal_devid() const;
   inline PROTOBUF_ALWAYS_INLINE void _internal_set_devid(const std::string& value);
   std::string* _internal_mutable_devid();
-  public:
-
-  // string ip = 3;
-  void clear_ip();
-  const std::string& ip() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_ip(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_ip();
-  PROTOBUF_MUST_USE_RESULT std::string* release_ip();
-  void set_allocated_ip(std::string* ip);
-  private:
-  const std::string& _internal_ip() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_ip(const std::string& value);
-  std::string* _internal_mutable_ip();
   public:
 
   // int32 status = 2;
@@ -3370,7 +3545,6 @@ class DeviceStatus final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr devid_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr ip_;
   ::PROTOBUF_NAMESPACE_ID::int32 status_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_PXREAService_2eproto;
@@ -3425,7 +3599,7 @@ class DeviceModel final :
                &_DeviceModel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(DeviceModel& a, DeviceModel& b) {
     a.Swap(&b);
@@ -3589,7 +3763,7 @@ class CurrentApplication final :
                &_CurrentApplication_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(CurrentApplication& a, CurrentApplication& b) {
     a.Swap(&b);
@@ -3753,7 +3927,7 @@ class ControllerBattery final :
                &_ControllerBattery_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(ControllerBattery& a, ControllerBattery& b) {
     a.Swap(&b);
@@ -3934,7 +4108,7 @@ class DeviceBlob final :
                &_DeviceBlob_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(DeviceBlob& a, DeviceBlob& b) {
     a.Swap(&b);
@@ -4098,7 +4272,7 @@ class DeviceMonitorParameter final :
                &_DeviceMonitorParameter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(DeviceMonitorParameter& a, DeviceMonitorParameter& b) {
     a.Swap(&b);
@@ -4268,7 +4442,7 @@ class VideoFrameInfo final :
                &_VideoFrameInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(VideoFrameInfo& a, VideoFrameInfo& b) {
     a.Swap(&b);
@@ -4471,7 +4645,7 @@ class DeviceMonitorSharedMemoryKey final :
                &_DeviceMonitorSharedMemoryKey_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(DeviceMonitorSharedMemoryKey& a, DeviceMonitorSharedMemoryKey& b) {
     a.Swap(&b);
@@ -4619,7 +4793,7 @@ class VideoControlResult final :
                &_VideoControlResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(VideoControlResult& a, VideoControlResult& b) {
     a.Swap(&b);
@@ -4821,7 +4995,7 @@ class DeviceControlParameterJson final :
                &_DeviceControlParameterJson_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(DeviceControlParameterJson& a, DeviceControlParameterJson& b) {
     a.Swap(&b);
@@ -4985,7 +5159,7 @@ class DeviceStateJson final :
                &_DeviceStateJson_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(DeviceStateJson& a, DeviceStateJson& b) {
     a.Swap(&b);
@@ -5149,7 +5323,7 @@ class ScreenMonitorParameter final :
                &_ScreenMonitorParameter_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(ScreenMonitorParameter& a, ScreenMonitorParameter& b) {
     a.Swap(&b);
@@ -7429,6 +7603,80 @@ inline ::PXREAService::DeviceStateJson* ServerFeedback::mutable_devicestatejson(
   return _msg;
 }
 
+// .PXREAService.DeviceInfo devinfo = 16;
+inline bool ServerFeedback::_internal_has_devinfo() const {
+  return FeedbackArgs_case() == kDevinfo;
+}
+inline bool ServerFeedback::has_devinfo() const {
+  return _internal_has_devinfo();
+}
+inline void ServerFeedback::set_has_devinfo() {
+  _oneof_case_[0] = kDevinfo;
+}
+inline void ServerFeedback::clear_devinfo() {
+  if (_internal_has_devinfo()) {
+    if (GetArenaForAllocation() == nullptr) {
+      delete FeedbackArgs_.devinfo_;
+    }
+    clear_has_FeedbackArgs();
+  }
+}
+inline ::PXREAService::DeviceInfo* ServerFeedback::release_devinfo() {
+  // @@protoc_insertion_point(field_release:PXREAService.ServerFeedback.devinfo)
+  if (_internal_has_devinfo()) {
+    clear_has_FeedbackArgs();
+      ::PXREAService::DeviceInfo* temp = FeedbackArgs_.devinfo_;
+    if (GetArenaForAllocation() != nullptr) {
+      temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+    }
+    FeedbackArgs_.devinfo_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline const ::PXREAService::DeviceInfo& ServerFeedback::_internal_devinfo() const {
+  return _internal_has_devinfo()
+      ? *FeedbackArgs_.devinfo_
+      : reinterpret_cast< ::PXREAService::DeviceInfo&>(::PXREAService::_DeviceInfo_default_instance_);
+}
+inline const ::PXREAService::DeviceInfo& ServerFeedback::devinfo() const {
+  // @@protoc_insertion_point(field_get:PXREAService.ServerFeedback.devinfo)
+  return _internal_devinfo();
+}
+inline ::PXREAService::DeviceInfo* ServerFeedback::unsafe_arena_release_devinfo() {
+  // @@protoc_insertion_point(field_unsafe_arena_release:PXREAService.ServerFeedback.devinfo)
+  if (_internal_has_devinfo()) {
+    clear_has_FeedbackArgs();
+    ::PXREAService::DeviceInfo* temp = FeedbackArgs_.devinfo_;
+    FeedbackArgs_.devinfo_ = nullptr;
+    return temp;
+  } else {
+    return nullptr;
+  }
+}
+inline void ServerFeedback::unsafe_arena_set_allocated_devinfo(::PXREAService::DeviceInfo* devinfo) {
+  clear_FeedbackArgs();
+  if (devinfo) {
+    set_has_devinfo();
+    FeedbackArgs_.devinfo_ = devinfo;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:PXREAService.ServerFeedback.devinfo)
+}
+inline ::PXREAService::DeviceInfo* ServerFeedback::_internal_mutable_devinfo() {
+  if (!_internal_has_devinfo()) {
+    clear_FeedbackArgs();
+    set_has_devinfo();
+    FeedbackArgs_.devinfo_ = CreateMaybeMessage< ::PXREAService::DeviceInfo >(GetArenaForAllocation());
+  }
+  return FeedbackArgs_.devinfo_;
+}
+inline ::PXREAService::DeviceInfo* ServerFeedback::mutable_devinfo() {
+  ::PXREAService::DeviceInfo* _msg = _internal_mutable_devinfo();
+  // @@protoc_insertion_point(field_mutable:PXREAService.ServerFeedback.devinfo)
+  return _msg;
+}
+
 inline bool ServerFeedback::has_FeedbackArgs() const {
   return FeedbackArgs_case() != FEEDBACKARGS_NOT_SET;
 }
@@ -7574,6 +7822,102 @@ inline void DeviceBattery::set_battery(::PROTOBUF_NAMESPACE_ID::uint32 value) {
 
 // -------------------------------------------------------------------
 
+// DeviceInfo
+
+// string devid = 1;
+inline void DeviceInfo::clear_devid() {
+  devid_.ClearToEmpty();
+}
+inline const std::string& DeviceInfo::devid() const {
+  // @@protoc_insertion_point(field_get:PXREAService.DeviceInfo.devid)
+  return _internal_devid();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DeviceInfo::set_devid(ArgT0&& arg0, ArgT... args) {
+
+ devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:PXREAService.DeviceInfo.devid)
+}
+inline std::string* DeviceInfo::mutable_devid() {
+  std::string* _s = _internal_mutable_devid();
+  // @@protoc_insertion_point(field_mutable:PXREAService.DeviceInfo.devid)
+  return _s;
+}
+inline const std::string& DeviceInfo::_internal_devid() const {
+  return devid_.Get();
+}
+inline void DeviceInfo::_internal_set_devid(const std::string& value) {
+
+  devid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* DeviceInfo::_internal_mutable_devid() {
+
+  return devid_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* DeviceInfo::release_devid() {
+  // @@protoc_insertion_point(field_release:PXREAService.DeviceInfo.devid)
+  return devid_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void DeviceInfo::set_allocated_devid(std::string* devid) {
+  if (devid != nullptr) {
+
+  } else {
+
+  }
+  devid_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), devid,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:PXREAService.DeviceInfo.devid)
+}
+
+// string ip = 2;
+inline void DeviceInfo::clear_ip() {
+  ip_.ClearToEmpty();
+}
+inline const std::string& DeviceInfo::ip() const {
+  // @@protoc_insertion_point(field_get:PXREAService.DeviceInfo.ip)
+  return _internal_ip();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void DeviceInfo::set_ip(ArgT0&& arg0, ArgT... args) {
+
+ ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:PXREAService.DeviceInfo.ip)
+}
+inline std::string* DeviceInfo::mutable_ip() {
+  std::string* _s = _internal_mutable_ip();
+  // @@protoc_insertion_point(field_mutable:PXREAService.DeviceInfo.ip)
+  return _s;
+}
+inline const std::string& DeviceInfo::_internal_ip() const {
+  return ip_.Get();
+}
+inline void DeviceInfo::_internal_set_ip(const std::string& value) {
+
+  ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* DeviceInfo::_internal_mutable_ip() {
+
+  return ip_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* DeviceInfo::release_ip() {
+  // @@protoc_insertion_point(field_release:PXREAService.DeviceInfo.ip)
+  return ip_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void DeviceInfo::set_allocated_ip(std::string* ip) {
+  if (ip != nullptr) {
+
+  } else {
+
+  }
+  ip_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ip,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:PXREAService.DeviceInfo.ip)
+}
+
+// -------------------------------------------------------------------
+
 // DeviceStatus
 
 // string devid = 1;
@@ -7640,52 +7984,6 @@ inline void DeviceStatus::_internal_set_status(::PROTOBUF_NAMESPACE_ID::int32 va
 inline void DeviceStatus::set_status(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_status(value);
   // @@protoc_insertion_point(field_set:PXREAService.DeviceStatus.status)
-}
-
-// string ip = 3;
-inline void DeviceStatus::clear_ip() {
-  ip_.ClearToEmpty();
-}
-inline const std::string& DeviceStatus::ip() const {
-  // @@protoc_insertion_point(field_get:PXREAService.DeviceStatus.ip)
-  return _internal_ip();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void DeviceStatus::set_ip(ArgT0&& arg0, ArgT... args) {
-
- ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:PXREAService.DeviceStatus.ip)
-}
-inline std::string* DeviceStatus::mutable_ip() {
-  std::string* _s = _internal_mutable_ip();
-  // @@protoc_insertion_point(field_mutable:PXREAService.DeviceStatus.ip)
-  return _s;
-}
-inline const std::string& DeviceStatus::_internal_ip() const {
-  return ip_.Get();
-}
-inline void DeviceStatus::_internal_set_ip(const std::string& value) {
-
-  ip_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* DeviceStatus::_internal_mutable_ip() {
-
-  return ip_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* DeviceStatus::release_ip() {
-  // @@protoc_insertion_point(field_release:PXREAService.DeviceStatus.ip)
-  return ip_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void DeviceStatus::set_allocated_ip(std::string* ip) {
-  if (ip != nullptr) {
-
-  } else {
-
-  }
-  ip_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ip,
-      GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:PXREAService.DeviceStatus.ip)
 }
 
 // -------------------------------------------------------------------
@@ -8823,6 +9121,8 @@ inline void ScreenMonitorParameter::set_quality(::PROTOBUF_NAMESPACE_ID::int32 v
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
